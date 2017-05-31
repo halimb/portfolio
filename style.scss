@@ -16,6 +16,12 @@ $a: 2.9vw;
 
 p {
 	font-size: .75 * $a;
+	text-align: justify;
+}
+
+p::first-letter {
+	font-family: "JSlab-b";
+	font-size: 2.5*$a;
 }
 
 body {
@@ -101,7 +107,7 @@ canvas {
 
 
 @media screen and (max-width: 600px) {
-	$a: 4vw;
+	$a: 7vw;
 	
 	body {
 		margin: 0;
@@ -116,22 +122,29 @@ canvas {
 	}
 
 	.content {
-		padding: $a 3*$a;
+		padding: 3*$a 2*$a;
 	}
 
 	.nav {
-		margin: $a/13 auto 0 auto;
+		width: 11*$a;
+		right: $a;
+		margin: auto;
 	}
 
 	.item {	
 		font-size: 2 * $a/3;
 		line-height: $a;
 		padding: $a/2 0;
+		margin: 4*$a $a/3 auto 0;
 	}
 
 	.logo {
-		margin: $a/2 0 0 3*$a;
-		line-height: .5 * $a ;
-		font-size:  $a;
+		color: #666;
+		position: absolute;
+		width: 10.5*$a;
+		left:0; right: 0;
+		margin: $a auto;
+		line-height: 1.25*$a ;
+		font-size:  2.2 * $a;
 	}
 }

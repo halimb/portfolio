@@ -5,7 +5,12 @@
   src: url("fonts/JosefinSlab-Bold.ttf");
   font-family: "JSlab-b"; }
 p {
-  font-size: 2.175vw; }
+  font-size: 2.175vw;
+  text-align: justify; }
+
+p::first-letter {
+  font-family: "JSlab-b";
+  font-size: 7.25vw; }
 
 body {
   margin: -.5vh 0;
@@ -80,26 +85,34 @@ canvas {
     margin: 0; }
 
   p {
-    font-size: 3vw; }
+    font-size: 5.25vw; }
 
   canvas {
-    top: 8vw !important;
-    left: -4vw; }
+    top: 14vw !important;
+    left: -7vw; }
 
   .content {
-    padding: 4vw 12vw; }
+    padding: 21vw 14vw; }
 
   .nav {
-    margin: 0.30769vw auto 0 auto; }
+    width: 77vw;
+    right: 7vw;
+    margin: auto; }
 
   .item {
-    font-size: 2.66667vw;
-    line-height: 4vw;
-    padding: 2vw 0; }
+    font-size: 4.66667vw;
+    line-height: 7vw;
+    padding: 3.5vw 0;
+    margin: 28vw 2.33333vw auto 0; }
 
   .logo {
-    margin: 2vw 0 0 12vw;
-    line-height: 2vw;
-    font-size: 4vw; } }
+    color: #666;
+    position: absolute;
+    width: 73.5vw;
+    left: 0;
+    right: 0;
+    margin: 7vw auto;
+    line-height: 8.75vw;
+    font-size: 15.4vw; } }
 
 /*# sourceMappingURL=style.css.map */
