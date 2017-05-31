@@ -1,3 +1,109 @@
+@font-face {
+  src: url("fonts/JosefinSlab-SemiBold.ttf");
+  font-family: "JSlab-sb"; }
+@font-face {
+  src: url("fonts/JosefinSlab-Bold.ttf");
+  font-family: "JSlab-b"; }
+p {
+  font-size: 1.45vw; }
+
 body {
-	background-color: #faa;
-}
+  margin: -.5vh 0;
+  padding: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  vertical-align: baseline;
+  font-family: "JSlab-sb"; }
+
+canvas {
+  position: absolute;
+  top: 5.8vw !important;
+  left: -2.9vw;
+  z-index: -10; }
+
+.content {
+  padding: 2.9vw 8.7vw; }
+
+.cont-2 {
+  background-color: #fde; }
+
+.cont-3 {
+  background-color: #def; }
+
+.cont-4 {
+  background-color: #efa; }
+
+.bar {
+  margin: 0;
+  background-color: #fff; }
+
+.nav {
+  width: 40vw;
+  display: flex;
+  margin: 0.22308vw auto 0 auto;
+  flex-direction: row;
+  left: 0;
+  right: 0; }
+
+.item {
+  width: 100%;
+  font-size: 1.93333vw;
+  cursor: pointer;
+  transition: .5s;
+  line-height: 2.9vw;
+  text-align: center;
+  padding: 1.45vw 0;
+  font-family: "JSlab-sb";
+  border-bottom: 2px solid transparent; }
+
+.item:hover {
+  border-bottom: 2px solid #000; }
+
+.logo {
+  color: #fff;
+  background-color: #fba;
+  margin: 1.45vw 0 0 8.7vw;
+  position: absolute;
+  line-height: 1.45vw;
+  font-size: 2.9vw;
+  font-family: "JSlab-b"; }
+
+#B {
+  font-size: 90%; }
+
+#g {
+  font-size: 130%;
+  font-family: "JSlab-sb"; }
+
+@media screen and (max-width: 800px) {
+  canvas {
+    position: absolute;
+    top: 10vw;
+    left: -4vw;
+    z-index: -10; }
+
+  .nav {
+    width: 60vw;
+    display: flex;
+    margin: 0vw auto;
+    position: absolute;
+    flex-direction: row;
+    left: 20vw;
+    right: 0; }
+
+  .bar {
+    height: 8.8vw; }
+
+  .logo {
+    color: #fff;
+    background-color: #fba;
+    margin: 2vw 4vw 1.33333vw 4vw;
+    line-height: 2vw;
+    font-size: 4vw; }
+
+  .item {
+    font-size: 2.66667vw;
+    line-height: 4vw;
+    padding: 2.66667vw 0; } }
+
+/*# sourceMappingURL=style.css.map */

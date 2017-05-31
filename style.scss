@@ -1,0 +1,138 @@
+$bg: #fff;
+$primary: #fba;
+$border: #ddd;
+$a: 2.9vw;
+
+
+@font-face {
+	src: url("fonts/JosefinSlab-SemiBold.ttf");
+	font-family: "JSlab-sb";
+}
+
+@font-face {
+	src: url("fonts/JosefinSlab-Bold.ttf");
+	font-family: "JSlab-b";
+}
+
+p {
+	font-size: $a/2;
+}
+
+body {
+	margin: -.5vh 0;
+	padding: 0;
+	background-color: $bg;
+	overflow-x: hidden;
+	vertical-align: baseline;
+	font-family: "JSlab-sb";
+}
+
+canvas {
+	position: absolute;
+	top: 2*$a !important;
+	left: -$a;
+	z-index: -10;
+}
+
+.content {
+	padding: $a 3*$a;
+}
+
+.cont-1 {
+}
+
+.cont-2 {
+	background-color: #fde;
+}
+
+.cont-3 {
+	background-color: #def;
+}
+
+.cont-4 {
+	background-color: #efa;
+}
+
+.bar {
+	margin: 0;
+	background-color: $bg;
+}
+
+.nav {
+	width: 40vw;
+	display: flex;
+	margin: $a/13 auto 0 auto;
+	flex-direction: row;
+	left: 0; right: 0;
+}
+
+.item {	
+	width: 100%;
+	font-size: 2 * $a/3;
+	cursor: pointer;
+	transition: .5s;
+	line-height: $a;
+	text-align: center;
+	padding: $a/2 0;
+	font-family: "JSlab-sb";
+	border-bottom: 2px solid rgba(0,0,0,0);
+}
+
+.item:hover {
+	border-bottom: 2px solid #000;
+}
+
+.logo {
+	color: $bg;
+	background-color: $primary;
+	margin: $a/2 0 0 3*$a;
+	position: absolute;
+	line-height: .5 * $a ;
+	font-size:  $a;
+	font-family: "JSlab-b";
+}
+#B {
+	font-size: 90%;
+}
+#g {
+	font-size: 130%;
+	font-family: "JSlab-sb";
+}
+
+
+@media screen and (max-width: 800px) {
+	$a: 4vw;
+
+	canvas {
+		position: absolute;
+		top: 2.5*$a;
+		left: -$a;
+		z-index: -10;
+	}
+
+	.nav {
+		width: 60vw;
+		display: flex;
+		margin: 0vw auto;
+		position: absolute;
+		flex-direction: row;
+		left: 5*$a; right:0;
+	}
+
+	.bar {
+		height: 2.2*$a;
+	}
+	.logo {
+		color: $bg;
+		background-color: $primary;
+		margin: $a/2 $a $a/3 $a;
+		line-height: $a / 2;
+		font-size: $a;
+	}
+
+	.item {	
+		font-size: $a *2/3;
+		line-height: $a;
+		padding: 2*$a/3 0;
+	}
+}
