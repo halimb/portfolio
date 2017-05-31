@@ -15,7 +15,7 @@ $a: 2.9vw;
 }
 
 p {
-	font-size: $a/2;
+	font-size: .75 * $a;
 }
 
 body {
@@ -100,39 +100,38 @@ canvas {
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
 	$a: 4vw;
+	
+	body {
+		margin: 0;
+	}
 
+	p {
+		font-size: .75 * $a;
+	}
 	canvas {
-		position: absolute;
-		top: 2.5*$a;
+		top: 2*$a !important;
 		left: -$a;
-		z-index: -10;
+	}
+
+	.content {
+		padding: $a 3*$a;
 	}
 
 	.nav {
-		width: 60vw;
-		display: flex;
-		margin: 0vw auto;
-		position: absolute;
-		flex-direction: row;
-		left: 5*$a; right:0;
-	}
-
-	.bar {
-		height: 2.2*$a;
-	}
-	.logo {
-		color: $bg;
-		background-color: $primary;
-		margin: $a/2 $a $a/3 $a;
-		line-height: $a / 2;
-		font-size: $a;
+		margin: $a/13 auto 0 auto;
 	}
 
 	.item {	
-		font-size: $a *2/3;
+		font-size: 2 * $a/3;
 		line-height: $a;
-		padding: 2*$a/3 0;
+		padding: $a/2 0;
+	}
+
+	.logo {
+		margin: $a/2 0 0 3*$a;
+		line-height: .5 * $a ;
+		font-size:  $a;
 	}
 }

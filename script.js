@@ -4,10 +4,11 @@ var pattern = Trianglify({
 			});
 			document.body.appendChild(pattern.canvas())
 
+console.log("width = " + window.outerWidth);
+console.log("height = " + window.outerHeight);
+
 var y = 0;
 var yTemp = 0;
-var now = Date.now();
-var then = 0;
 var sec1 = document.getElementById("s1");
 var sec2 = document.getElementById("s2");
 var sec3 = document.getElementById("s3");
@@ -24,13 +25,9 @@ function goToSect(n) {
 }
 
 function anim() {
-	now = Date.now();
 	if (yTemp < y) {
-		if (now - then > 10) {
-			step = 10;
-			window.scrollTo(0, yTemp+=step);
-			then = now;
-		}
+		step = 10;
+		window.scrollTo(0, yTemp+=step);
 		requestAnimationFrame(anim);
 	}
 }
