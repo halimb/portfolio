@@ -21,23 +21,29 @@ p {
 
 p::first-letter {
 	font-family: "JSlab-b";
-	font-size: 2.5*$a;
+	font-size: $a;
 }
 
 body {
 	margin: -.5vh 0;
 	padding: 0;
 	background-color: $bg;
-	overflow-x: hidden;
 	vertical-align: baseline;
 	font-family: "JSlab-sb";
 }
 
+
 canvas {
+	top: 0;
+	z-index: -1;
+	min-width: 110vw;
 	position: absolute;
-	top: 2*$a !important;
+}
+
+.bg {
 	left: -$a;
 	z-index: -10;
+	position: absolute;
 }
 
 .content {
@@ -52,7 +58,6 @@ canvas {
 }
 
 .cont-3 {
-	background-color: #def;
 }
 
 .cont-4 {
@@ -139,7 +144,6 @@ canvas {
 	}
 
 	.logo {
-		color: #666;
 		position: absolute;
 		width: 10.5*$a;
 		left:0; right: 0;

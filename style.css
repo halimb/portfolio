@@ -10,30 +10,31 @@ p {
 
 p::first-letter {
   font-family: "JSlab-b";
-  font-size: 7.25vw; }
+  font-size: 2.9vw; }
 
 body {
   margin: -.5vh 0;
   padding: 0;
   background-color: #fff;
-  overflow-x: hidden;
   vertical-align: baseline;
   font-family: "JSlab-sb"; }
 
 canvas {
-  position: absolute;
-  top: 5.8vw !important;
+  top: 0;
+  z-index: -1;
+  min-width: 110vw;
+  position: absolute; }
+
+.bg {
   left: -2.9vw;
-  z-index: -10; }
+  z-index: -10;
+  position: absolute; }
 
 .content {
   padding: 2.9vw 8.7vw; }
 
 .cont-2 {
   background-color: #fde; }
-
-.cont-3 {
-  background-color: #def; }
 
 .cont-4 {
   background-color: #efa; }
@@ -106,7 +107,6 @@ canvas {
     margin: 28vw 2.33333vw auto 0; }
 
   .logo {
-    color: #666;
     position: absolute;
     width: 73.5vw;
     left: 0;
