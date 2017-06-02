@@ -15,10 +15,21 @@ $a: 2.9vw;
 }
 
 p {
-	font-size: .75 * $a;
+	width: 17*$a;
+	margin: 3*$a auto;
+	padding: 2*$a;
+	background-color: $bg;
+	font-size: .7 * $a;
 	text-align: justify;
+	transition: 1s;
+	transform: perspective(1000vw) rotateY(0deg);
 }
-
+/*
+p:hover {
+	transform: perspective(300vw) rotateY(10deg);
+	transition: 2s;
+}
+*/
 p::first-letter {
 	font-family: "JSlab-b";
 	font-size: $a;
@@ -28,6 +39,7 @@ body {
 	margin: -.5vh 0;
 	padding: 0;
 	background-color: $bg;
+	overflow-x: hidden;
 	vertical-align: baseline;
 	font-family: "JSlab-sb";
 }
@@ -36,7 +48,8 @@ body {
 canvas {
 	top: 0;
 	z-index: -1;
-	min-width: 110vw;
+	min-width: 100vw;
+	max-width: 100vw;
 	position: absolute;
 }
 
@@ -46,33 +59,15 @@ canvas {
 	position: absolute;
 }
 
-.content {
-	padding: $a 3*$a;
-}
-
-.cont-1 {
-}
-
-.cont-2 {
-	background-color: #fde;
-}
-
-.cont-3 {
-}
-
-.cont-4 {
-	background-color: #efa;
-}
-
 .bar {
 	margin: 0;
 	background-color: $bg;
 }
 
 .nav {
-	width: 40vw;
+	width: 21*$a;
 	display: flex;
-	margin: $a/13 auto 0 auto;
+	margin: auto;
 	flex-direction: row;
 	left: 0; right: 0;
 }
@@ -96,7 +91,7 @@ canvas {
 .logo {
 	color: $bg;
 	background-color: $primary;
-	margin: $a/2 0 0 3*$a;
+	margin: $a/2 0 0 $a/2;
 	position: absolute;
 	line-height: .5 * $a ;
 	font-size:  $a;
@@ -104,11 +99,11 @@ canvas {
 }
 #B {
 	font-size: 90%;
-}
+}/*
 #g {
 	font-size: 130%;
 	font-family: "JSlab-sb";
-}
+}*/
 
 
 @media screen and (max-width: 600px) {
@@ -121,13 +116,9 @@ canvas {
 	p {
 		font-size: .75 * $a;
 	}
-	canvas {
-		top: 2*$a !important;
-		left: -$a;
-	}
 
 	.content {
-		padding: 3*$a 2*$a;
+		padding: 2*$a $a;
 	}
 
 	.nav {

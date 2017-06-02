@@ -5,9 +5,21 @@
   src: url("fonts/JosefinSlab-Bold.ttf");
   font-family: "JSlab-b"; }
 p {
-  font-size: 2.175vw;
-  text-align: justify; }
+  width: 49.3vw;
+  margin: 8.7vw auto;
+  padding: 5.8vw;
+  background-color: #fff;
+  font-size: 2.03vw;
+  text-align: justify;
+  transition: 1s;
+  transform: perspective(1000vw) rotateY(0deg); }
 
+/*
+p:hover {
+	transform: perspective(300vw) rotateY(10deg);
+	transition: 2s;
+}
+*/
 p::first-letter {
   font-family: "JSlab-b";
   font-size: 2.9vw; }
@@ -16,13 +28,15 @@ body {
   margin: -.5vh 0;
   padding: 0;
   background-color: #fff;
+  overflow-x: hidden;
   vertical-align: baseline;
   font-family: "JSlab-sb"; }
 
 canvas {
   top: 0;
   z-index: -1;
-  min-width: 110vw;
+  min-width: 100vw;
+  max-width: 100vw;
   position: absolute; }
 
 .bg {
@@ -30,23 +44,14 @@ canvas {
   z-index: -10;
   position: absolute; }
 
-.content {
-  padding: 2.9vw 8.7vw; }
-
-.cont-2 {
-  background-color: #fde; }
-
-.cont-4 {
-  background-color: #efa; }
-
 .bar {
   margin: 0;
   background-color: #fff; }
 
 .nav {
-  width: 40vw;
+  width: 60.9vw;
   display: flex;
-  margin: 0.22308vw auto 0 auto;
+  margin: auto;
   flex-direction: row;
   left: 0;
   right: 0; }
@@ -68,7 +73,7 @@ canvas {
 .logo {
   color: #fff;
   background-color: #fba;
-  margin: 1.45vw 0 0 8.7vw;
+  margin: 1.45vw 0 0 1.45vw;
   position: absolute;
   line-height: 1.45vw;
   font-size: 2.9vw;
@@ -77,10 +82,11 @@ canvas {
 #B {
   font-size: 90%; }
 
+ /*
 #g {
-  font-size: 130%;
-  font-family: "JSlab-sb"; }
-
+	font-size: 130%;
+	font-family: "JSlab-sb";
+}*/
 @media screen and (max-width: 600px) {
   body {
     margin: 0; }
@@ -88,12 +94,8 @@ canvas {
   p {
     font-size: 5.25vw; }
 
-  canvas {
-    top: 14vw !important;
-    left: -7vw; }
-
   .content {
-    padding: 21vw 14vw; }
+    padding: 14vw 7vw; }
 
   .nav {
     width: 77vw;
