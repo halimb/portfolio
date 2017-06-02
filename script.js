@@ -1,6 +1,7 @@
 var t = 0;
 var y = 0;
 var yTemp = 0;
+var pattern;
 var secs = [
 		 document.getElementById("p1"),
 		 document.getElementById("p2"),
@@ -16,6 +17,7 @@ var sec3 = document.getElementById("s3");
 var cont1 = document.getElementById("content-1");
 var cont2 = document.getElementById("content-2");
 var cont3 = document.getElementById("content-3");
+
 
 function goToSect(n) {
 	if(n > 0 && n < 5) {
@@ -48,32 +50,37 @@ sec3.onclick = function() { goToSect(3) };
 function trianglify() {
 	var w =  window.innerWidth;
 	var h = getDocHeight();
-	var pattern = Trianglify({
+	pattern = Trianglify({
 				y_colors: 'Reds',
-				x_colors: 'Reds',
+				x_colors: 'Blues',
 				variance: 0.45,
 				width: w,
 				height: h,
 				cell_size: 100
 			}).canvas();
+	pattern.id = "pattern";
 	document.body.appendChild(pattern);
 }
 
 function getDocHeight() {
 	var body = document.body,
     	html = document.documentElement;
-	return 1.1 * Math.max(   body.scrollHeight, 
+	return .8 * Math.max(   body.scrollHeight, 
 					   body.offsetHeight, 
 	                   html.clientHeight, 
 	                   html.scrollHeight, 
 	                   html.offsetHeight );
 }
 
-trianglify();
+function init() {
+	trianglify();
+}
+
+init();
 
 document.addEventListener("scroll", function(e) {
+			var pos = window.scrollY;
 			if(window.innerWidth > 500) {
-				var pos = window.scrollY;
 				var max = 2;
 				for(var i = 0; i < secs.length; i++) {
 					if(pos + secs[i].offsetHeight / 2 > secs[i].offsetTop) {
@@ -82,6 +89,7 @@ document.addEventListener("scroll", function(e) {
 				}
 				tilt(max);	
 			}
+			pattern.style.top = pos / 3 + "px";
 		});
 
 function tilt(i) {

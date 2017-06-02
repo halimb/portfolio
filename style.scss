@@ -35,9 +35,14 @@ p::first-letter {
 	font-size: $a;
 }
 
+.shadow {
+	box-shadow: 0 0 $a rgba(0,0,0,.3);
+}
+
 body {
 	margin: -.5vh 0;
 	padding: 0;
+	max-height: 100vw !important;
 	background-color: $bg;
 	overflow-x: hidden;
 	vertical-align: baseline;
