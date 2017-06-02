@@ -20,8 +20,8 @@ var cont3 = document.getElementById("content-3");
 function goToSect(n) {
 	if(n > 0 && n < 5) {
 		var cont = document.getElementById("content-" + n);
-		var body = document.body.scrollTop;
-		var doc = document.documentElement.scrollTop;
+		var body = document.body.scrollTop + 1;
+		var doc = document.documentElement.scrollTop + 1;
 		yTemp =  body ? body : doc;
 		y = cont.offsetTop - 50;
 		anim();
@@ -30,15 +30,12 @@ function goToSect(n) {
 
 function anim() {
 	if (yTemp < y) {
-		if(yTemp < y / 2) {
-			step = (yTemp / y) * 20;
-		}
-		else {
-			step = (y / yTemp) * 20;
-		}
-		window.scrollTo(0, yTemp+=step);
+		step = (yTemp < y / 2) ?
+			20 + (yTemp / (y / 2)) * 40:
+			10 + ((y - yTemp) / y) * 40;
+		yTemp += step;
+		window.scrollTo(0, yTemp);
 		requestAnimationFrame(anim);
-		console.log(yTemp)
 	}
 }
 
