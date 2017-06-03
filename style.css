@@ -4,36 +4,62 @@
 @font-face {
   src: url("fonts/JosefinSlab-Bold.ttf");
   font-family: "JSlab-b"; }
-p {
+.section {
   width: 49.3vw;
-  margin: 8.7vw auto;
+  transition: 1s;
   padding: 5.8vw;
-  background-color: #fff;
+  margin: 8.7vw 17.85vw;
   font-size: 2.03vw;
   text-align: justify;
-  transition: 1s;
   transform: perspective(1000vw) rotateY(0deg); }
 
-/*
-p:hover {
-	transform: perspective(300vw) rotateY(10deg);
-	transition: 2s;
-}
-*/
+.slide-left {
+  margin-left: 14.5vw; }
+
+.slide-right {
+  margin-left: 21.2vw; }
+
+.slow {
+  transition: 3s; }
+
+.fast {
+  transition: 1s; }
+
 p::first-letter {
   font-family: "JSlab-b";
   font-size: 2.9vw; }
 
 .shadow {
-  box-shadow: 0 0 2.9vw rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 0 2.9vw rgba(0, 0, 0, 0.3);
+  background-color: #fff; }
+
+.portfolio {
+  background-color: transparent;
+  transform: perspective(1000vw) rotateY(0deg); }
+
+.snap {
+  width: 16.43333vw;
+  padding: 0.96667vw;
+  margin: 2.9vw;
+  transition: .5s;
+  z-index: 10;
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 0.41429vw 0.41429vw 1.45vw rgba(0, 0, 0, 0.4);
+  transform: perspective(200vw) translateZ(0.1vw); }
+
+.snap:hover {
+  transform: perspective(200vw) translateZ(5.8vw); }
+
+img {
+  width: 100%;
+  display: block; }
 
 body {
   margin: -.5vh 0;
   padding: 0;
-  max-height: 100vw !important;
   background-color: #fff;
   overflow-x: hidden;
-  vertical-align: baseline;
   font-family: "JSlab-sb"; }
 
 canvas {

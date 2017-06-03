@@ -2,6 +2,8 @@ $bg: #fff;
 $primary: #fba;
 $border: #ddd;
 $a: 2.9vw;
+$ml: (85 - 17*$a) / 2;
+$w: 17*$a;
 
 
 @font-face {
@@ -14,22 +16,33 @@ $a: 2.9vw;
 	font-family: "JSlab-b";
 }
 
-p {
-	width: 17*$a;
-	margin: 3*$a auto;
+.section {
+	width: $w;
+	transition: 1s;
 	padding: 2*$a;
-	background-color: $bg;
+	margin: 3*$a $ml;
 	font-size: .7 * $a;
 	text-align: justify;
-	transition: 1s;
 	transform: perspective(1000vw) rotateY(0deg);
 }
-/*
-p:hover {
-	transform: perspective(300vw) rotateY(10deg);
-	transition: 2s;
+
+
+.slide-left {
+	margin-left: 5*$a; 
 }
-*/
+
+.slide-right {
+	margin-left: 2*$ml - 5*$a;
+}
+
+.slow {
+	transition: 3s;
+}
+
+.fast {
+	transition: 1s;
+}
+
 p::first-letter {
 	font-family: "JSlab-b";
 	font-size: $a;
@@ -37,15 +50,40 @@ p::first-letter {
 
 .shadow {
 	box-shadow: 0 0 $a rgba(0,0,0,.3);
+	background-color: $bg;
+}
+
+.portfolio {
+	background-color: rgba(0,0,0,0);
+	transform: perspective(1000vw) rotateY(0deg);
+}
+
+.snap {
+	width: $w / 3;
+	padding: $a/3;
+	margin: $a;
+	transition: .5s;
+	z-index: 10;
+	cursor: pointer;
+	background-color: $bg;
+	box-shadow: $a/7 $a/7 $a/2 rgba(0,0,0,.4);
+	transform: perspective(200vw) translateZ(.1vw);
+}
+
+.snap:hover {
+	transform: perspective(200vw) translateZ(2*$a);
+}
+
+img {
+	width: 100%;
+	display: block;
 }
 
 body {
 	margin: -.5vh 0;
 	padding: 0;
-	max-height: 100vw !important;
 	background-color: $bg;
 	overflow-x: hidden;
-	vertical-align: baseline;
 	font-family: "JSlab-sb";
 }
 

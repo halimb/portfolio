@@ -49,7 +49,7 @@ sec3.onclick = function() { goToSect(3) };
 *  https://github.com/qrohlf/trianglify    */
 function trianglify() {
 	var w =  window.innerWidth;
-	var h = getDocHeight();
+	var h = 1.2 * getDocHeight();
 	pattern = Trianglify({
 				y_colors: 'Reds',
 				x_colors: 'Blues',
@@ -89,17 +89,27 @@ document.addEventListener("scroll", function(e) {
 				}
 				tilt(max);	
 			}
-			pattern.style.top = pos / 3 + "px";
+			pattern.style.top =  pos / 3 + "px";
 		});
 
 function tilt(i) {
 	for(var j = 0; j < secs.length; j++) {
-		var sign = j % 2 == 0 ? -1 : 1;
+		var sign = (j % 2 == 0) ? 1 : -1;
 		secs[j].style.transform = (j == i) ? 
 			"perspective(100vw) rotateY(" +
-			 sign * window.innerWidth / 250 + "deg)" :
-			"perspective(100vw) rotateY(0deg)"
+			 sign *  window.innerWidth / 250 + "deg)" :
+			"perspective(100vw) rotateY(0deg)";
+		if(i == j && i != 1) {
+			secs[j].className += (j % 2 == 0) ?
+			" slide-left fast" : " slide-right fast";
+			console.log(i);
+		}
+		else {
+			secs[j].className = (j == 1) ? 
+			"portfolio section slow" : "shadow section slow";
+		}
 	}
+
 }
 
 window.onresize = function() {
