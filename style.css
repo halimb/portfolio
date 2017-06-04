@@ -13,11 +13,33 @@
   text-align: justify;
   transform: perspective(1000vw) rotateY(0deg); }
 
+.up {
+  position: fixed;
+  bottom: 2.9vw;
+  background-color: #fff;
+  height: 5.8vw;
+  width: 5.8vw;
+  text-align: center;
+  line-height: 4.35vw;
+  font-size: 5.8vw;
+  cursor: pointer;
+  transition: .5s;
+  transform: perspective(20vw) rotateY(0deg) rotateZ(-90deg); }
+
+.show {
+  right: 2.9vw; }
+
+.hide {
+  right: -5.8vw; }
+
+.up:hover {
+  transform: perspective(20vw) rotateY(-20deg) rotateZ(-90deg); }
+
 .slide-left {
-  margin-left: 14.5vw; }
+  margin-left: 17.4vw; }
 
 .slide-right {
-  margin-left: 21.2vw; }
+  margin-left: 18.3vw; }
 
 .slow {
   transition: 3s; }
@@ -34,19 +56,25 @@ p::first-letter {
   background-color: #fff; }
 
 .portfolio {
-  background-color: transparent;
+  padding: 0;
+  width: 64.09vw;
+  height: 83.81vw;
   transform: perspective(1000vw) rotateY(0deg); }
 
 .snap {
-  width: 16.43333vw;
+  float: left;
+  width: 24.65vw;
   padding: 0.96667vw;
-  margin: 2.9vw;
+  margin: 1.885vw;
   transition: .5s;
-  z-index: 10;
   cursor: pointer;
   background-color: #fff;
   box-shadow: 0.41429vw 0.41429vw 1.45vw rgba(0, 0, 0, 0.4);
   transform: perspective(200vw) translateZ(0.1vw); }
+
+.snap:before {
+  content: "bla bla bla";
+  background-color: #fff; }
 
 .snap:hover {
   transform: perspective(200vw) translateZ(5.8vw); }

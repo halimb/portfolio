@@ -18,30 +18,46 @@ var cont1 = document.getElementById("content-1");
 var cont2 = document.getElementById("content-2");
 var cont3 = document.getElementById("content-3");
 
+var down;
+var up = document.getElementById("up");
+up.onclick = function() { goToSect(1) };
 
 function goToSect(n) {
-	if(n > 0 && n < 5) {
+	console.log("inside goToSect");
+	if(n > 0 && n < 3) {
 		var cont = document.getElementById("content-" + n);
 		var body = document.body.scrollTop + 1;
 		var doc = document.documentElement.scrollTop + 1;
 		yTemp =  body ? body : doc;
 		y = cont.offsetTop - 50;
+		down = (y - yTemp > 0) ? true : false;
 		anim();
 	}
 }
 
+
+/* >    >    >    >    >  
+TODO (handle both up and down scrolling direction )  
+   <    <    <    <    <        */
+
 function anim() {
-	if (yTemp < y) {
-		step = (yTemp < y / 2) ?
-			20 + (yTemp / (y / 2)) * 40:
-			10 + ((y - yTemp) / y) * 40;
-		yTemp += step;
-		window.scrollTo(0, yTemp);
-		requestAnimationFrame(anim);
+	console.log("inside anim, yTemp = " + yTemp + ", y = " + y);
+	var cond = down ? (yTemp < y) : (yTemp > y);
+	if(down) {
+		if (yTemp < y) {
+			step = (yTemp < y / 2) ?
+				25 + (yTemp / (y / 2)) * 40:
+				10 + ((y - yTemp) / y) * 40;
+			yTemp += step;
+			console.log(((y - yTemp) / y) * 40)
+			window.scrollTo(0, yTemp);
+			requestAnimationFrame(anim);
+		}	
 	}
+	
 }
 
-y.onclick = function() { goToSect(1) };
+sec1.onclick = function() { goToSect(1) };
 sec2.onclick = function() { goToSect(2) };
 sec3.onclick = function() { goToSect(3) };
 
@@ -80,6 +96,10 @@ init();
 
 document.addEventListener("scroll", function(e) {
 			var pos = window.scrollY;
+
+			up.className = (pos > 400) ?
+			"shadow up show" : "shadow up hide";
+
 			if(window.innerWidth > 500) {
 				var max = 2;
 				for(var i = 0; i < secs.length; i++) {
@@ -99,7 +119,7 @@ function tilt(i) {
 			"perspective(100vw) rotateY(" +
 			 sign *  window.innerWidth / 250 + "deg)" :
 			"perspective(100vw) rotateY(0deg)";
-		if(i == j && i != 1) {
+		/*if(i == j && i != 1) {
 			secs[j].className += (j % 2 == 0) ?
 			" slide-left fast" : " slide-right fast";
 			console.log(i);
@@ -107,7 +127,7 @@ function tilt(i) {
 		else {
 			secs[j].className = (j == 1) ? 
 			"portfolio section slow" : "shadow section slow";
-		}
+		}*/
 	}
 
 }

@@ -26,13 +26,38 @@ $w: 17*$a;
 	transform: perspective(1000vw) rotateY(0deg);
 }
 
+.up {
+	position: fixed;
+	bottom: $a;
+	background-color: $bg;
+	height: 2*$a;
+	width: 2*$a;
+	text-align: center;
+	line-height: 1.5*$a;
+	font-size: 2*$a;
+	cursor: pointer;
+	transition: .5s;
+	transform: perspective(20vw) rotateY(0deg) rotateZ(-90deg);
+}
+
+.show {
+	right: $a;
+}
+
+.hide {
+	right: -2*$a;
+}
+
+.up:hover {
+	transform: perspective(20vw) rotateY(-20deg) rotateZ(-90deg);
+}
 
 .slide-left {
-	margin-left: 5*$a; 
+	margin-left: 6*$a; 
 }
 
 .slide-right {
-	margin-left: 2*$ml - 5*$a;
+	margin-left: 2*$ml - 6*$a;
 }
 
 .slow {
@@ -54,23 +79,30 @@ p::first-letter {
 }
 
 .portfolio {
-	background-color: rgba(0,0,0,0);
+	padding: 0;
+	width: 1.3 * $w;
+	height: $w * 1.7;
 	transform: perspective(1000vw) rotateY(0deg);
 }
 
 .snap {
-	width: $w / 3;
+	float: left;
+	width: $w / 2;
 	padding: $a/3;
-	margin: $a;
+	margin: $a * .65;
 	transition: .5s;
-	z-index: 10;
 	cursor: pointer;
 	background-color: $bg;
 	box-shadow: $a/7 $a/7 $a/2 rgba(0,0,0,.4);
 	transform: perspective(200vw) translateZ(.1vw);
 }
 
-.snap:hover {
+.snap:before {
+	content: "bla bla bla";
+	background-color: $bg;
+}
+
+.snap:hover{
 	transform: perspective(200vw) translateZ(2*$a);
 }
 
