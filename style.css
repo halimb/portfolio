@@ -5,12 +5,12 @@
   src: url("fonts/JosefinSlab-Bold.ttf");
   font-family: "JSlab-b"; }
 img {
+  max-width: 100%;
   width: 100%;
-  display: block;
-  margin-top: 1.125vw; }
+  display: block; }
 
 body {
-  margin: 9vw 0;
+  margin: 8vw 0;
   padding: 0;
   background-color: #fff;
   overflow-x: hidden;
@@ -25,61 +25,61 @@ canvas {
 
 .section::first-letter {
   font-family: "JSlab-b";
-  font-size: 2.25vw; }
+  font-size: 2vw; }
 
 .section {
-  width: 38.25vw;
+  width: 34vw;
   transition: 1s;
-  padding: 4.5vw;
-  margin: 6.75vw 23.375vw;
-  font-size: 1.8vw;
+  padding: 4vw;
+  margin: 6vw 25.5vw;
+  font-size: 1.6vw;
   text-align: justify;
   background-color: #fff;
   transform: perspective(1000vw) rotateY(0deg); }
 
 .content {
-  margin-bottom: 11.25vw;
+  margin-bottom: 10vw;
   transition: 1s; }
 
 .title {
   transition: 1.5s !important;
-  margin-bottom: -4.5vw;
-  margin-left: -2.25vw;
-  font-size: 4.5vw;
+  margin-bottom: -4vw;
+  margin-left: -2vw;
+  font-size: 4vw;
   text-align: center; }
 
 .highlight {
   background-color: #fff;
-  padding: 0 2.25vw; }
+  padding: 0 2vw; }
 
 .up {
   position: fixed;
-  bottom: 2.25vw;
+  bottom: 2vw;
   background-color: #fff;
-  height: 4.5vw;
-  width: 4.5vw;
+  height: 4vw;
+  width: 4vw;
   z-index: 100;
   text-align: center;
-  line-height: 3.375vw;
-  font-size: 4.5vw;
+  line-height: 3vw;
+  font-size: 4vw;
   cursor: pointer;
   transition: .5s;
   transform: perspective(20vw) rotateY(0deg) rotateZ(-90deg); }
 
 .show {
-  right: 2.25vw; }
+  right: 2vw; }
 
 .hide {
-  right: -4.5vw; }
+  right: -4vw; }
 
 .up:hover {
   transform: perspective(20vw) rotateY(-20deg) rotateZ(-90deg); }
 
 .slide-left {
-  margin-left: 13.5vw; }
+  margin-left: 6vw; }
 
 .slide-right {
-  margin-left: 33.25vw; }
+  margin-left: 39vw; }
 
 .slow {
   transition: 3s; }
@@ -88,48 +88,59 @@ canvas {
   transition: 1s; }
 
 .shadow {
-  box-shadow: 0 0 2.25vw rgba(0, 0, 0, 0.3); }
+  /*box-shadow: 0 0 $a rgba(0,0,0,.3);*/ }
 
 .portfolio {
   padding: 0;
-  width: 76.5vw;
-  height: 57.375vw;
-  margin-left: 11.6875vw;
+  width: 68vw;
+  height: 170vw;
+  margin-left: 15.3vw;
   background-color: transparent;
   transform: perspective(1000vw) rotateY(0deg); }
 
 .thumb, .snap, .profile {
-  width: 15.3vw;
-  padding: 0.5625vw;
-  margin: 1.125vw;
-  transition: .5s;
+  width: 18.7vw;
+  margin: 1.2vw;
+  transition: .2s;
   text-align: center;
   background-color: #fff;
-  box-shadow: 0.32143vw 0.32143vw 1.125vw rgba(0, 0, 0, 0.4);
+  box-shadow: 0.2vw 0.2vw rgba(100, 100, 100, 0.4), 0 0 1vw rgba(100, 100, 100, 0.4);
   transform: perspective(200vw) translateZ(0.1vw); }
 
 .snap {
   float: left;
   cursor: pointer;
   color: #000;
-  padding-top: 1.125vw; }
+  overflow: hidden;
+  display: block;
+  font-size: 1.6vw;
+  line-height: 4vw;
+  padding: 0.66667vw;
+  padding-top: 0; }
+
+.snap:hover {
+  transform: perspective(200vw) translateZ(4vw);
+  box-shadow: 1vw 1vw rgba(100, 100, 100, 0.4); }
+
+#wedge {
+  width: 9vw;
+  visibility: hidden; }
 
 .profile {
   transition: 1s;
-  width: 22.95vw;
+  width: 20.4vw;
   float: right;
-  margin-left: -8.25vw;
-  margin-bottom: -8.25vw;
+  padding: 1vw;
+  margin-left: -7.33333vw;
+  margin-bottom: -7.33333vw;
+  box-shadow: 0.28571vw 0.28571vw 1vw rgba(0, 0, 0, 0.4);
   transform: rotateZ(1deg) translateX(0) translateY(0); }
 
 .anim-profile {
-  transform: rotateZ(1deg) translateX(9vw) translateY(-9vw); }
-
-.snap:hover {
-  transform: perspective(200vw) translateZ(4.5vw); }
+  transform: rotateZ(1deg) translateX(8vw) translateY(-8vw); }
 
 .bg {
-  left: -2.25vw;
+  left: -2vw;
   z-index: -10;
   position: absolute; }
 
@@ -146,10 +157,10 @@ canvas {
   top: 0; }
 
 .hid {
-  top: -5.625vw; }
+  top: -5vw; }
 
 .nav {
-  width: 47.25vw;
+  width: 42vw;
   display: flex;
   margin: 0 auto;
   flex-direction: row;
@@ -158,12 +169,12 @@ canvas {
 
 .item {
   width: 100%;
-  font-size: 1.5vw;
+  font-size: 1.33333vw;
   cursor: pointer;
   transition: .5s;
-  line-height: 2.25vw;
+  line-height: 2vw;
   text-align: center;
-  padding: 1.125vw 0;
+  padding: 1vw 0;
   font-family: "JSlab-sb";
   border-bottom: 2px solid transparent;
   border-radius: 10%; }
@@ -175,10 +186,10 @@ canvas {
 .logo {
   color: #fff;
   background-color: #fba;
-  margin: 1.125vw 0 0 1.125vw;
+  margin: 1vw 0 0 1vw;
   position: absolute;
-  line-height: 1.125vw;
-  font-size: 2.25vw;
+  line-height: 1vw;
+  font-size: 2vw;
   font-family: "JSlab-b"; }
 
 #B {
@@ -189,6 +200,13 @@ canvas {
 	font-size: 130%;
 	font-family: "JSlab-sb";
 }*/
+#greet {
+  font-size: 3vw; }
+
+#p1::first-letter {
+  font-family: "JSlab-sb";
+  font-size: 4vw; }
+
 @media screen and (max-width: 600px) {
   body {
     margin: 0; }

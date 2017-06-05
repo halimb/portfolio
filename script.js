@@ -77,6 +77,7 @@ function getDocHeight() {
 
 function init() {
 	trianglify();
+	window.scrollTo(0,1);
 }
 
 init();
@@ -93,7 +94,9 @@ document.addEventListener("scroll", function(e) {
 			if(window.innerWidth > 500) {
 				var max = 2;
 				for(var i = 0; i < secs.length; i++) {
-					if(pos + secs[i].offsetHeight / 2 > secs[i].offsetTop) {
+					var focus = pos + window.innerHeight/ 4;
+					var divTop = secs[i].offsetTop; 
+					if(focus > divTop || pos == 1) {
 						max = i;
 					}
 				}
@@ -107,14 +110,28 @@ document.addEventListener("scroll", function(e) {
 function tilt(i) {
 	for(var j = 0; j < secs.length; j++) {
 		var sign = (j % 2 == 0) ? 1 : -1;
-		secs[j].style.transform = (j == i) ? 
-			"perspective(100vw) rotateY(" +
-			 sign *  window.innerWidth / 400 + "deg)" :
-			"perspective(100vw) rotateY(0deg)";
+		if(j != 1) {
+			secs[j].style.transform = (j == i) ? 
+				"perspective(100vw) rotateY(" +
+				 sign *  window.innerWidth / 400 + "deg)" :
+				"perspective(100vw) rotateY(0deg)";
+		}
 		var title = document.getElementById('t'+(j+1));
-		var d = (i == j) ?
-			((i == 2) ? "5vw" : 
-				(i == 1) ? "0vw" : "-9vw") : "0vw";
+		var d = "0vw";
+		if(i == j) {
+			switch(i) {
+				case 0:
+					d = "-12vw";
+					break;
+				case 1: 
+					d = "0vw";
+					break;
+				case 2:
+					d = "5vw";
+					break;
+			}
+		}
+
 		title.style.transform = "translateX(" + d + ")";
 	}
 

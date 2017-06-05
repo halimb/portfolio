@@ -1,7 +1,7 @@
 $bg: #fff;
 $primary: #fba;
 $border: #ddd;
-$a: 2.25vw;
+$a: 2vw;
 $ml: (85 - 17*$a) / 2;
 $w: 17*$a;
 
@@ -17,9 +17,9 @@ $w: 17*$a;
 }
 
 img {
+  	max-width: 100%;
 	width: 100%;
 	display: block;
-	margin-top: $a/2;
 }
 
 body {
@@ -100,7 +100,7 @@ canvas {
 }
 
 .slide-left {
-	margin-left: 6*$a; 
+	margin-left: 3*$a; 
 }
 
 .slide-right {
@@ -117,26 +117,26 @@ canvas {
 
 
 .shadow {
-	box-shadow: 0 0 $a rgba(0,0,0,.3);
+	/*box-shadow: 0 0 $a rgba(0,0,0,.3);*/
 }
 
 .portfolio {
 	padding: 0;
 	width: 2 * $w;
-	height: $w * 1.5;
-	margin-left: $ml * .5;
+	height: $w * 5;
+	margin-left: $ml * .6;
 	background-color: rgba(0,0,0,0);
 	transform: perspective(1000vw) rotateY(0deg);
 }
 
 .thumb {
-	width: $w * .4;
-	padding: $a/4;
-	margin: $a / 2;
-	transition: .5s;
+	width: $w * .55;
+	margin: $a * .6;
+	transition: .2s;
 	text-align: center;
 	background-color: $bg;
-	box-shadow: $a/7 $a/7 $a/2 rgba(0,0,0,.4);
+	box-shadow: .1*$a .1*$a rgba(100,100,100,.4), 
+	0 0  $a/2 rgba(100,100,100,.4);
 	transform: perspective(200vw) translateZ(.1vw);
 }
 
@@ -145,7 +145,23 @@ canvas {
 	float: left;
 	cursor: pointer;
 	color: #000;
-	padding-top: $a/2;
+	overflow: hidden;
+	display: block;
+	font-size: $a * .8;
+	line-height: 2 * $a;
+	padding: $a/3;
+	padding-top: 0;
+}
+
+
+.snap:hover{
+	transform: perspective(200vw) translateZ(2*$a);
+	box-shadow: $a/2 $a/2  rgba(100,100,100,.4);
+}
+
+#wedge {
+	width: 4.5*$a;
+	visibility: hidden;
 }
 
 .profile {	
@@ -153,20 +169,15 @@ canvas {
 	@extend .thumb;
 	width: $w * .6;
 	float: right;
+	padding: $a / 2;
 	margin-left: $a/3 - 4*$a;
 	margin-bottom: $a/3 - 4*$a;
-
+	box-shadow: $a/7 $a/7 $a/2 rgba(0,0,0,.4);
 	transform: rotateZ(1deg) translateX(0) translateY(0);
 }
 
-.anim-profile {	transform: rotateZ(1deg) translateX(4*$a) translateY(-4*$a);
-}
-
-
-
-
-.snap:hover{
-	transform: perspective(200vw) translateZ(2*$a);
+.anim-profile {	
+	transform: rotateZ(1deg) translateX(4*$a) translateY(-4*$a);
 }
 
 .bg {
@@ -228,6 +239,7 @@ canvas {
 	font-size:  $a;
 	font-family: "JSlab-b";
 }
+
 #B {
 	font-size: 90%;
 }/*
@@ -235,6 +247,15 @@ canvas {
 	font-size: 130%;
 	font-family: "JSlab-sb";
 }*/
+
+#greet {
+	font-size: 1.5*$a;
+}
+
+#p1::first-letter {
+	font-family: "JSlab-sb";
+	font-size: 2*$a;
+}
 
 
 @media screen and (max-width: 600px) {
