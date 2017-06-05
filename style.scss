@@ -1,7 +1,7 @@
 $bg: #fff;
 $primary: #fba;
 $border: #ddd;
-$a: 2.9vw;
+$a: 2.25vw;
 $ml: (85 - 17*$a) / 2;
 $w: 17*$a;
 
@@ -16,14 +16,60 @@ $w: 17*$a;
 	font-family: "JSlab-b";
 }
 
+img {
+	width: 100%;
+	display: block;
+	margin-top: $a/2;
+}
+
+body {
+	margin: 4*$a 0;
+	padding: 0;
+	background-color: $bg;
+	overflow-x: hidden;
+	font-family: "JSlab-sb";
+}
+
+canvas {
+	top: 0;
+	z-index: -1;
+	min-width: 100vw;
+	max-width: 100vw;
+	position: absolute;
+}
+
+.section::first-letter {
+	font-family: "JSlab-b";
+	font-size: $a;
+}
+
 .section {
 	width: $w;
 	transition: 1s;
 	padding: 2*$a;
 	margin: 3*$a $ml;
-	font-size: .7 * $a;
+	font-size: .8 * $a;
 	text-align: justify;
+	background-color: $bg;
 	transform: perspective(1000vw) rotateY(0deg);
+}
+
+.content {
+	margin-bottom: 5*$a;
+	transition: 1s;
+}
+
+.title {
+	transition: 1.5s !important;
+	margin-bottom: - 2 * $a;
+	margin-left: -$a;
+	font-size: 2*$a;
+	text-align: center;
+}
+
+.highlight {
+	background-color: $bg;
+	padding: 0 $a;
 }
 
 .up {
@@ -32,6 +78,7 @@ $w: 17*$a;
 	background-color: $bg;
 	height: 2*$a;
 	width: 2*$a;
+	z-index: 100;
 	text-align: center;
 	line-height: 1.5*$a;
 	font-size: 2*$a;
@@ -68,64 +115,58 @@ $w: 17*$a;
 	transition: 1s;
 }
 
-p::first-letter {
-	font-family: "JSlab-b";
-	font-size: $a;
-}
 
 .shadow {
 	box-shadow: 0 0 $a rgba(0,0,0,.3);
-	background-color: $bg;
 }
 
 .portfolio {
 	padding: 0;
-	width: 1.3 * $w;
-	height: $w * 1.7;
+	width: 2 * $w;
+	height: $w * 1.5;
+	margin-left: $ml * .5;
+	background-color: rgba(0,0,0,0);
 	transform: perspective(1000vw) rotateY(0deg);
 }
 
-.snap {
-	float: left;
-	width: $w / 2;
-	padding: $a/3;
-	margin: $a * .65;
+.thumb {
+	width: $w * .4;
+	padding: $a/4;
+	margin: $a / 2;
 	transition: .5s;
-	cursor: pointer;
+	text-align: center;
 	background-color: $bg;
 	box-shadow: $a/7 $a/7 $a/2 rgba(0,0,0,.4);
 	transform: perspective(200vw) translateZ(.1vw);
 }
 
-.snap:before {
-	content: "bla bla bla";
-	background-color: $bg;
+.snap {
+	@extend .thumb;
+	float: left;
+	cursor: pointer;
+	color: #000;
+	padding-top: $a/2;
 }
+
+.profile {	
+	transition: 1s;
+	@extend .thumb;
+	width: $w * .6;
+	float: right;
+	margin-left: $a/3 - 4*$a;
+	margin-bottom: $a/3 - 4*$a;
+
+	transform: rotateZ(1deg) translateX(0) translateY(0);
+}
+
+.anim-profile {	transform: rotateZ(1deg) translateX(4*$a) translateY(-4*$a);
+}
+
+
+
 
 .snap:hover{
 	transform: perspective(200vw) translateZ(2*$a);
-}
-
-img {
-	width: 100%;
-	display: block;
-}
-
-body {
-	margin: -.5vh 0;
-	padding: 0;
-	background-color: $bg;
-	overflow-x: hidden;
-	font-family: "JSlab-sb";
-}
-
-
-canvas {
-	top: 0;
-	z-index: -1;
-	min-width: 100vw;
-	max-width: 100vw;
-	position: absolute;
 }
 
 .bg {
@@ -135,14 +176,27 @@ canvas {
 }
 
 .bar {
+	position: fixed;
+	top:0;
 	margin: 0;
+	width: 100vw;
+	z-index: 50;
+	transition: .5s;
 	background-color: $bg;
+}
+
+.vis {
+	top: 0;
+}
+
+.hid {
+	top: -2.5 * $a;
 }
 
 .nav {
 	width: 21*$a;
 	display: flex;
-	margin: auto;
+	margin: 0 auto;
 	flex-direction: row;
 	left: 0; right: 0;
 }
@@ -157,10 +211,12 @@ canvas {
 	padding: $a/2 0;
 	font-family: "JSlab-sb";
 	border-bottom: 2px solid rgba(0,0,0,0);
+	border-radius: 10%;
 }
 
 .item:hover {
 	border-bottom: 2px solid #000;
+	border-radius: 0%;
 }
 
 .logo {
