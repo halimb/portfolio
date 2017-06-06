@@ -67,10 +67,10 @@ canvas {
   transform: perspective(20vw) rotateY(0deg) rotateZ(-90deg); }
 
 .show {
-  right: 2vw; }
+  right: 1vw; }
 
 .hide {
-  right: -4vw; }
+  right: -6vw; }
 
 .up:hover {
   transform: perspective(20vw) rotateY(-20deg) rotateZ(-90deg); }
@@ -93,16 +93,26 @@ canvas {
 .portfolio {
   padding: 0;
   width: 68vw;
-  height: 170vw;
+  height: 88.4vw;
   margin-left: 15.3vw;
   background-color: transparent;
   transform: perspective(1000vw) rotateY(0deg); }
+
+.port-txt {
+  float: left;
+  background-color: #fff;
+  margin: 1.2vw;
+  margin-top: 9.4vw;
+  line-height: 2vw;
+  width: 38.6vw;
+  padding: 2vw;
+  font-size: 2vw; }
 
 .thumb, .snap, .profile {
   width: 18.7vw;
   margin: 1.2vw;
   transition: .2s;
-  text-align: center;
+  text-align: justify;
   background-color: #fff;
   box-shadow: 0.2vw 0.2vw rgba(100, 100, 100, 0.4), 0 0 1vw rgba(100, 100, 100, 0.4);
   transform: perspective(200vw) translateZ(0.1vw); }
@@ -145,6 +155,7 @@ canvas {
   position: absolute; }
 
 .bar {
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.4);
   position: fixed;
   top: 0;
   margin: 0;
@@ -157,7 +168,7 @@ canvas {
   top: 0; }
 
 .hid {
-  top: -5vw; }
+  top: -8vw; }
 
 .nav {
   width: 42vw;
@@ -169,10 +180,10 @@ canvas {
 
 .item {
   width: 100%;
-  font-size: 1.33333vw;
+  font-size: 1.6vw;
   cursor: pointer;
   transition: .5s;
-  line-height: 2vw;
+  line-height: 3vw;
   text-align: center;
   padding: 1vw 0;
   font-family: "JSlab-sb";
@@ -184,28 +195,39 @@ canvas {
   border-radius: 0%; }
 
 .logo {
-  color: #fff;
+  color: #333;
   background-color: #fba;
   margin: 1vw 0 0 1vw;
   position: absolute;
-  line-height: 1vw;
-  font-size: 2vw;
-  font-family: "JSlab-b"; }
+  line-height: 2.2vw;
+  font-size: 3.2vw;
+  font-family: "JSlab-sb";
+  transform: perspective(30vw) translate(2vw, 0.8vw); }
 
 #B {
-  font-size: 90%; }
+  font-size: 100%;
+  font-family: "JSlab-b"; }
 
- /*
-#g {
-	font-size: 130%;
-	font-family: "JSlab-sb";
-}*/
 #greet {
   font-size: 3vw; }
 
 #p1::first-letter {
   font-family: "JSlab-sb";
   font-size: 4vw; }
+
+#t2 {
+  margin-bottom: -12vw; }
+
+::-webkit-scrollbar {
+  width: 1vw; }
+
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.3);
+  background-clip: content-box; }
+
+::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  height: 6vw; }
 
 @media screen and (max-width: 600px) {
   body {
