@@ -38,11 +38,6 @@ canvas {
 	position: absolute;
 }
 
-.section::first-letter {
-	font-family: "JSlab-b";
-	font-size: $a;
-}
-
 .section {
 	width: $w;
 	transition: 1s;
@@ -55,7 +50,7 @@ canvas {
 }
 
 .content {
-	margin-bottom: 5*$a;
+	margin: $w * .3 auto $w * .5 auto;
 	transition: 1s;
 }
 
@@ -123,7 +118,7 @@ canvas {
 .portfolio {
 	padding: 0;
 	width: 2 * $w;
-	height: $w * 2.6;
+	height: $w * 2.7;
 	margin-left: $ml * .6;
 	background-color: rgba(0,0,0,0);
 	transform: perspective(1000vw) rotateY(0deg);
@@ -168,11 +163,6 @@ canvas {
 .snap:hover{
 	transform: perspective(200vw) translateZ(2*$a);
 	box-shadow: $a/2 $a/2  rgba(100,100,100,.4);
-}
-
-#wedge {
-	width: 4.5*$a;
-	visibility: hidden;
 }
 
 .profile {	
@@ -237,25 +227,66 @@ canvas {
 	border-radius: 10%;
 }
 
-.item:hover {
-	border-bottom: 2px solid #000;
+.underline {
 	border-radius: 0%;
+	border-bottom: 2px solid #000;
+}
+
+.item:hover {
+	@extend .underline;
 }
 
 .logo {
-	color: #333;
-	background-color: $primary;
+	color: $bg;
+	background-color: rgba(255, 200, 180, .8);
 	margin: $a/2 0 0 $a/2;
 	position: absolute;
 	line-height: 1.1 * $a ;
-	font-size:  1.6 * $a;
+	font-size:  1.5 * $a;
 	font-family: "JSlab-sb";
 	transform: perspective(30vw) 
-				translate($a, $a * .4) 
+				translate($a/2, $a * .2) 
 }
 
+.links {	
+	margin: $a .8*$a;
+	margin-bottom: 2 * $a;
+	width: $w * .6;
+	left: 0; right: 0;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+}
+
+#contact {
+	width: $w*.75;
+	text-align: center;
+	background-color: rgba(0,0,0,0);
+	font-size: 1*$a;
+}
+
+.contact {
+	width: 100%; 
+}
+
+.contact:hover  .cov {
+	opacity: 1;
+}
+
+.cov {
+	transition: .25s;
+	opacity: 0;
+}
+
+.logo-img {
+	position: absolute;
+	width: $a * 2.2; 
+}
+
+
+
 #B {
-	font-size: 100%;
+	font-size: 70%;
 	font-family: "JSlab-b";
 }
 
@@ -263,7 +294,7 @@ canvas {
 	font-size: 1.5*$a;
 }
 
-#p1::first-letter {
+#bio::first-letter {
 	font-family: "JSlab-sb";
 	font-size: 2*$a;
 }
@@ -284,6 +315,27 @@ canvas {
 ::-webkit-scrollbar-thumb{
 	background-color: $bg;
 	height: 3*$a;
+}
+
+input{
+	margin-bottom: $a;
+	width: $w;
+	height: $a * 2;
+	font-size: $a * 1.2;
+	font-family: "JSlab-sb";
+	background-color: rgba(0,0,0,0);
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 2px solid black;
+}
+
+input:focus{
+	outline: none;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 2px solid black;
 }
 
 @media screen and (max-width: 600px) {

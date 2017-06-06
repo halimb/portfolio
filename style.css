@@ -23,10 +23,6 @@ canvas {
   max-width: 100vw;
   position: absolute; }
 
-.section::first-letter {
-  font-family: "JSlab-b";
-  font-size: 2vw; }
-
 .section {
   width: 34vw;
   transition: 1s;
@@ -38,7 +34,7 @@ canvas {
   transform: perspective(1000vw) rotateY(0deg); }
 
 .content {
-  margin-bottom: 10vw;
+  margin: 10.2vw auto 17vw auto;
   transition: 1s; }
 
 .title {
@@ -93,7 +89,7 @@ canvas {
 .portfolio {
   padding: 0;
   width: 68vw;
-  height: 88.4vw;
+  height: 91.8vw;
   margin-left: 15.3vw;
   background-color: transparent;
   transform: perspective(1000vw) rotateY(0deg); }
@@ -131,10 +127,6 @@ canvas {
 .snap:hover {
   transform: perspective(200vw) translateZ(4vw);
   box-shadow: 1vw 1vw rgba(100, 100, 100, 0.4); }
-
-#wedge {
-  width: 9vw;
-  visibility: hidden; }
 
 .profile {
   transition: 1s;
@@ -190,28 +182,58 @@ canvas {
   border-bottom: 2px solid transparent;
   border-radius: 10%; }
 
-.item:hover {
-  border-bottom: 2px solid #000;
-  border-radius: 0%; }
+.underline, .item:hover {
+  border-radius: 0%;
+  border-bottom: 2px solid #000; }
 
 .logo {
-  color: #333;
-  background-color: #fba;
+  color: #fff;
+  background-color: rgba(255, 200, 180, 0.8);
   margin: 1vw 0 0 1vw;
   position: absolute;
   line-height: 2.2vw;
-  font-size: 3.2vw;
+  font-size: 3vw;
   font-family: "JSlab-sb";
-  transform: perspective(30vw) translate(2vw, 0.8vw); }
+  transform: perspective(30vw) translate(1vw, 0.4vw); }
+
+.links {
+  margin: 2vw 1.6vw;
+  margin-bottom: 4vw;
+  width: 20.4vw;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: row; }
+
+#contact {
+  width: 25.5vw;
+  text-align: center;
+  background-color: transparent;
+  font-size: 2vw; }
+
+.contact {
+  width: 100%; }
+
+.contact:hover .cov {
+  opacity: 1; }
+
+.cov {
+  transition: .25s;
+  opacity: 0; }
+
+.logo-img {
+  position: absolute;
+  width: 4.4vw; }
 
 #B {
-  font-size: 100%;
+  font-size: 70%;
   font-family: "JSlab-b"; }
 
 #greet {
   font-size: 3vw; }
 
-#p1::first-letter {
+#bio::first-letter {
   font-family: "JSlab-sb";
   font-size: 4vw; }
 
@@ -228,6 +250,25 @@ canvas {
 ::-webkit-scrollbar-thumb {
   background-color: #fff;
   height: 6vw; }
+
+input {
+  margin-bottom: 2vw;
+  width: 34vw;
+  height: 4vw;
+  font-size: 2.4vw;
+  font-family: "JSlab-sb";
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid black; }
+
+input:focus {
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid black; }
 
 @media screen and (max-width: 600px) {
   body {
