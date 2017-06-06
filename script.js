@@ -52,7 +52,7 @@ function anim() {
 *  https://github.com/qrohlf/trianglify    */
 function trianglify() {
 	var w =  window.innerWidth;
-	var h = 1.2 * getDocHeight();
+	var h = getDocHeight();
 	pattern = Trianglify({
 				y_colors: 'Reds',
 				x_colors: 'Blues',
@@ -74,6 +74,7 @@ function getDocHeight() {
 	                   html.scrollHeight, 
 	                   html.offsetHeight );
 }
+
 
 function init() {
 	trianglify();
@@ -110,7 +111,7 @@ document.addEventListener("scroll", function(e) {
 function tilt(i) {
 	for(var j = 0; j < secs.length; j++) {
 		var sign = (j % 2 == 0) ? 1 : -1;
-		if(j != 1) {
+		if(j != 5) {
 			secs[j].style.transform = (j == i) ? 
 				"perspective(100vw) rotateY(" +
 				 sign *  window.innerWidth / 400 + "deg)" :
@@ -124,7 +125,7 @@ function tilt(i) {
 					d = "-12vw";
 					break;
 				case 1: 
-					d = "0vw";
+					d = "-23vw";
 					break;
 				case 2:
 					d = "5vw";
