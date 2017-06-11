@@ -12,9 +12,11 @@ img {
 body {
   margin: 8vw 0;
   padding: 0;
-  background-color: #fff;
+  background-color: #8BC34A;
   overflow-x: hidden;
-  font-family: "JSlab-sb"; }
+  font-family: "JSlab-sb";
+  display: flex;
+  flex-direction: column; }
 
 canvas {
   top: 0;
@@ -219,7 +221,7 @@ canvas {
   opacity: 1; }
 
 .cov {
-  transition: .25s;
+  transition: 1s;
   opacity: 0; }
 
 .logo-img {
@@ -244,7 +246,7 @@ canvas {
   width: 1vw; }
 
 ::-webkit-scrollbar-track {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
   background-clip: content-box; }
 
 ::-webkit-scrollbar-thumb {
@@ -299,13 +301,13 @@ input:focus {
     margin: 7vw auto;
     line-height: 8.75vw;
     font-size: 15.4vw; } }
+/* MOUSETRACKING */
 .wrapper {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  background-color: #8BC34A; }
 
 .main {
-  z-index: 1;
-  overflow: auto;
   top: 0;
   right: 0;
   bottom: 0;
@@ -313,21 +315,22 @@ input:focus {
   position: absolute; }
 
 .flex-grid {
-  z-index: -1;
-  background-color: #8BC34A;
-  margin-top: -2vw !important;
+  min-height: 100% !important;
   display: flex;
   flex-direction: column; }
 
 .flex-grid > .row {
+  height: 100%;
   display: flex; }
 
 .row > .cell {
+  width: 100%;
   display: flex;
-  /*transition: 1s;*/
-  border-right: none;
-  border-left: none;
-  border-bottom: none;
-  border-top: .1vw solid white !important; }
+  padding: 10vw; }
+
+.inner {
+  border-left: 5vw solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2.5vw solid rgba(255, 255, 255, 0);
+  border-top: 2.5vw solid rgba(255, 255, 255, 0); }
 
 /*# sourceMappingURL=style.css.map */

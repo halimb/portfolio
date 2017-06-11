@@ -6,6 +6,7 @@ var y = 0;
 var prev = 0;
 var yTemp = 0;
 var pattern;
+var main;
 var secs = [
 		 document.getElementById("c1"),
 		 document.getElementById("c2"),
@@ -29,14 +30,12 @@ var up = document.getElementById("up");
 up.onclick = function() { goToSect(1) };
 
 function goToSect(n) {
-	console.log("inside goToSect");
 	if(n > 0 && n <= 3) {
 		var cont = document.getElementById("c" + n);
 		var body = document.body.scrollTop + 1;
 		var doc = document.documentElement.scrollTop + 1;
 		yTemp =  body ? body : doc;
 		y = n == 1 ? 0 : cont.offsetTop - 50;
-		console.log(y);
 		down = (yTemp - y < 0) ? true : false;
 		anim();
 	}
@@ -116,7 +115,6 @@ document.addEventListener("scroll", function(e) {
 function focusOn(i) {
 	for(var j = 0; j < secs.length; j++) {
 		var sign = (j % 2 == 0) ? 1 : -1;
-		console.log(i);
 		navButtons[j].className = (j == i) ?
 			"item underline" : "item";
 		secs[j].style.transform = (j == i) ? 
@@ -159,11 +157,11 @@ function setTransitions(trans) {
 } 
 
 
+/* MOUSETRACKING */
 
-const dim = 60;
-const GUTTER = 80;
+const dim = 200;
+
 var xpos = 0, ypos = 0;
-var prevXpos = 0, prevYpos = 0;
 var grid = document.getElementById('grid');
 var rows, cellDim, cells, prev, laps, 
 	prevYs, maxDist, w, h, ROWS, COLS;
@@ -196,27 +194,28 @@ function Point(x, y) {
 }
 
 init();
+
 /* Given a div height and a gutter dimension  *
  * inflate the right number of divs in order  *
  * to fill the whole screen                   */
 function init() {
-	console.log("init()")
+	main = document.getElementById("main");
 	grid.innerHTML = "";
 	w = window.innerWidth;
-	h = window.innerHeight
-	ROWS = Math.floor(window.innerHeight / (dim + GUTTER));
-	COLS = Math.floor(window.innerWidth / (dim/2 + GUTTER));
+	h = main.scrollHeight;
+	console.log(h)
+	ROWS = Math.ceil(h / dim);
+	console.log(ROWS);
+	COLS = Math.ceil(ROWS * (w / h));
 	for(var i = 0; i < ROWS; i++) {
 		grid.innerHTML += '<div class="row"></div>';
 	}
 	rows = document.getElementsByClassName('row');
-	cellDim = Math.floor(h / ROWS - GUTTER);
-	cellDim = cellDim * 100 / w;
 	for(var i = 0; i < ROWS; i++) {
 		for(var j = 0; j < COLS; j++) {
-			var cell = '<div class="cell" style="margin: '+ 
-			 GUTTER / 2+'px;' + 
-			'height: '+cellDim+'vw; width: '+cellDim/2+'vw"></div>';
+			var cell = '<div class="cell">'+
+							'<div class="inner"></div>'+
+						'</div>';
 			rows[i].innerHTML += cell;
 		}
 	}
@@ -224,38 +223,31 @@ function init() {
 	prev = Array(cells.length).fill(0);
 	laps = Array(cells.length).fill(0);
 	prevYs = Array(cells.length).fill(0);
-	maxDist = Math.sqrt(
-				Math.pow( document.body.offsetWidth, 2 ) +
-				Math.pow( document.body.offsetHeight, 2 )
-			);
+	var origin = new Point(0, 0);
+	maxDist = origin.getDist(w, h);
 	rotateTo(w/2, h/2);
-}; 
+}
 
-// window.onresize = function() {
-// 			window.clearTimeout(t);
-// 			t = setTimeout(init, 400);
-// 			console.log("t = " + t);
-// 		}
+window.onresize = function() {
+			window.clearTimeout(t);
+			t = setTimeout(init, 400);
+		}
 
 document.onmousemove = function(e){
-				xpos = e.clientX;
-				ypos = e.clientY;
-				if( Math.abs(prevXpos - xpos) > 10||
-					Math.abs(prevYpos - ypos) > 10 ) {
-					prevXpos = xpos;
-					prevYpos = ypos;
-					rotateTo(xpos, ypos);
-				}
-			}
+			xpos = e.pageX;
+			ypos = e.pageY;
+			rotateTo(xpos, ypos);
+		}
 
 function rotateTo(a, b) {
 	for(var i = 0; i < cells.length; i++) {
 		var div = cells[i]
-		var dim = div.offsetHeight;
 		var x = div.offsetLeft + div.offsetWidth / 2;
 		var y = div.offsetTop + div.offsetHeight / 2;
 		var p = new Point(x, y);
-		var curr = p.angleTo(a, b) + laps[i] * 360;
+		var dist = p.getDist(a, b) / maxDist;
+		var curr = p.angleTo(a, b) /*+   dist * 270 */ /* + laps[i] * 360 */;
+ 
 
 		/*Uncomment this block if transitions	*
 		  are enabled in css. this forces the 	*
@@ -270,14 +262,9 @@ function rotateTo(a, b) {
 		prevYs[i] = b;
 		prev[i] = curr;
 
-		var normalDist = p.getDist(a, b) / maxDist;
-		var c = 255// - Math.floor(100 * normalDist) ;
-		var color = 'rgba(' + c + ',' + c + ',' + c + ', 1)';
-		var d = ".1vw"//(parseFloat(.3 + normalDist * 6).toFixed(4)) + 'vw';
-
-		var border = d + ' solid ' + color;
-		div.style.borderTop = border;
-
+		// var c = 255 - Math.floor(150 * dist) ;
+		// var color = 'rgba(' + c + ',' + c + ',' + c + ', 1)';
+		// div.childNodes[0].style.borderColor = color;
 		div.style.transform = 'rotate(' + -curr + 'deg)';
 	}
 }
