@@ -52,27 +52,10 @@ function anim() {
 }
 
 
-/* Uses Trianglify library by: Quinn Rohlf *
-*  https://github.com/qrohlf/trianglify    */
-function trianglify() {
-	var w =  window.innerWidth;
-	var h = getDocHeight();
-	pattern = Trianglify({
-				y_colors: 'Reds',
-				x_colors: 'Blues',
-				variance: 0.45,
-				width: w,
-				height: h,
-				cell_size: 100
-			}).canvas();
-	pattern.id = "pattern";
-	document.body.appendChild(pattern);
-}
-
 function getDocHeight() {
 	var body = document.body,
     	html = document.documentElement;
-	return .8 * Math.max(   body.scrollHeight, 
+	return  Math.max(  body.scrollHeight, 
 					   body.offsetHeight, 
 	                   html.clientHeight, 
 	                   html.scrollHeight, 
@@ -109,7 +92,7 @@ document.addEventListener("scroll", function(e) {
 				profile.className = max == 0 ? 
 					"profile anim-profile" : "profile";
 			}
-			// pattern.style.top =  pos / 3 + "px";
+			refreshFocus(e);
 		});
 
 function focusOn(i) {
@@ -202,10 +185,8 @@ function init() {
 	main = document.getElementById("main");
 	bg.innerHTML = "";
 	w = window.innerWidth;
-	h = main.scrollHeight;
-	console.log(h)
+	h = getDocHeight();
 	ROWS = Math.ceil(h / dim);
-	console.log(ROWS);
 	COLS = Math.ceil(ROWS * (w / h));
 	var rowH = h / ROWS;
 	for(var i = 0; i < ROWS; i++) {
@@ -226,7 +207,7 @@ function init() {
 	prevYs = Array(cells.length).fill(0);
 	var origin = new Point(0, 0);
 	maxDist = origin.getDist(w, h);
-	//rotateTo(w/2, h/2);
+	focusOn(w/2, h/2);
 }
 
 window.onresize = function() {
@@ -234,20 +215,23 @@ window.onresize = function() {
 			t = setTimeout(init, 400);
 		}
 
-document.onmousemove = function(e){
+document.onmousemove = refreshFocus
+document.addEventListener("mouseup", refreshFocus);
+
+function refreshFocus(e){
 			xpos = e.pageX;
 			ypos = e.pageY;
-			rotateTo(xpos, ypos);
+			focusOn(xpos, ypos);
 		}
 
-function rotateTo(a, b) {
+function focusOn(a, b) {
 	for(var i = 0; i < cells.length; i++) {
 		var div = cells[i]
 		var x = div.offsetLeft + div.offsetWidth / 2;
 		var y = div.offsetTop + div.offsetHeight / 2;
 		var p = new Point(x, y);
 		var dist = p.getDist(a, b) / maxDist;
-		var curr = p.angleTo(a, b)  /* +  dist * 90  /* + laps[i] * 360 */;
+		var curr = p.angleTo(a, b) /*  +  dist * 180  /* + laps[i] * 360 */;
  
 
 		/*Uncomment this block if transitions	*

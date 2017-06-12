@@ -86,6 +86,26 @@ canvas {
 	transform: perspective(20vw) rotateY(0deg) rotateZ(-90deg);
 }
 
+.send {
+	margin-top: $a;
+	margin-right: -$w*.685;
+	float: right;
+	background-color: $solid;
+	height: 2*$a;
+	width: 2*$a;
+	z-index: 100;
+	text-align: center;
+	line-height: 1.5*$a;
+	font-size: 2*$a;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.send:hover {
+	transform: perspective(20vw) rotateY(0deg) rotateZ(0deg);
+
+}
+
 .show {
 	right: $a/2;
 }
@@ -106,18 +126,6 @@ canvas {
 	margin-left: 2*$ml - 6*$a;
 }
 
-.slow {
-	transition: 3s;
-}
-
-.fast {
-	transition: 1s;
-}
-
-
-.shadow {
-	/*box-shadow: 0 0 $a rgba(0,0,0,.3);*/
-}
 
 .portfolio {
 	padding: 0;
@@ -325,7 +333,7 @@ canvas {
 
 .in {
 	margin-bottom: $a;
-	width: $w;
+	width: $w*1.2;
 	height: $a * 2;
 	font-size: $a * 1.2;
 	font-family: "JSlab-sb";
@@ -346,20 +354,23 @@ canvas {
 }
 
 .in::-webkit-input-placeholder {
-	color: #000;
-	font-size: $a;
+	color: #333;
+	font-size: $a * .8;
 }
 
 .in::-moz-placeholder {
-	color: #000;
+	color: #333;
+	font-size: $a * .8;
 }
 
 .in:-ms-input-placeholder {
-	color: #000;
+	color: #333;
+	font-size: $a * .8;
 }
 
 .in:-moz-placeholder {
-	color: #000;
+	color: #333;
+	font-size: $a * .8;
 }
 
 #msg:focus {
@@ -377,6 +388,12 @@ input:focus{
 
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px $bg inset;
+}
+
+form {
+	@extend .section;
+	margin: 0;
+	width: $w*1.2;
 }
 
 
@@ -444,14 +461,14 @@ input:-webkit-autofill {
 
 .row > .cell {
 	width: 100%;
-	padding: 3vw;}
+	padding: 6vw;}
 
 .inner {	
-	max-width: 30%;
-	max-height: 100%;
+	min-width: 100%;
+	min-height: 100%;
 	// border-bottom: 1vw solid rgba(255,255,255,.2);
-	border-left: 3vw solid rgba(255,255,255,.2);
-	border-bottom: .3vw solid rgba(255,255,255,.1);
-	border-top: .3vw solid rgba(255,255,255,.1);
+	border-top: 1vw solid rgba(255,255,255,.2);
+	// border-bottom: .1vw solid rgba(255,255,255,0);
+	// border-top: .1vw solid rgba(255,255,255,0);
 	// box-shadow: 2*$a 2*$a 0 rgba(255,255,255,.5);
 }
