@@ -195,6 +195,7 @@ function init() {
 		}
 		cells = document.querySelectorAll(".cell");
 		focusOn(w/2, h/2);
+		profile.className = "profile anim-profile";
 	}
 }
 
