@@ -1,6 +1,4 @@
 
-
-
 var ti = 0;
 var y = 0;
 var prev = 0;
@@ -13,21 +11,21 @@ var secs = [
 		 document.getElementById("c3")
 	]
 
-var profile = document.getElementById("profile");
 var navButtons = [
 		document.getElementById("s1"),
 		document.getElementById("s2"),
 		document.getElementById("s3")	
 	] 
 
+var down;
+var up = document.getElementById("up");
+var bar = document.getElementById("bar");
+var profile = document.getElementById("profile");
+
+up.onclick = function() { goToSect(1) };
 navButtons[0].onclick = function() { goToSect(1) };
 navButtons[1].onclick = function() { goToSect(2) };
 navButtons[2].onclick = function() { goToSect(3) };
-
-var down;
-var bar = document.getElementById("bar");
-var up = document.getElementById("up");
-up.onclick = function() { goToSect(1) };
 
 function goToSect(n) {
 	if(n > 0 && n <= 3) {
@@ -35,7 +33,7 @@ function goToSect(n) {
 		var body = document.body.scrollTop + 1;
 		var doc = document.documentElement.scrollTop + 1;
 		yTemp =  body ? body : doc;
-		y = n == 1 ? 0 : cont.offsetTop - 50;
+		y = n == 1 ? 0 : cont.offsetTop - 75;
 		down = (yTemp - y < 0) ? true : false;
 		anim();
 	}
@@ -132,7 +130,7 @@ function setTransitions(trans) {
 } 
 
 
-/* MOUSETRACKING */
+/* Mousetracking Background*/
 
 
 var xpos = 0, ypos = 0;
@@ -196,11 +194,6 @@ function init() {
 			}
 		}
 		cells = document.querySelectorAll(".cell");
-		prev = Array(cells.length).fill(0);
-		laps = Array(cells.length).fill(0);
-		prevYs = Array(cells.length).fill(0);
-		var origin = new Point(0, 0);
-		maxDist = origin.getDist(w, h);
 		focusOn(w/2, h/2);
 	}
 }
@@ -227,26 +220,7 @@ function focusOn(a, b) {
 		var x = div.offsetLeft + div.offsetWidth / 2;
 		var y = div.offsetTop + div.offsetHeight / 2;
 		var p = new Point(x, y);
-		var dist = p.getDist(a, b) / maxDist;
-		var curr = p.angleTo(a, b) /*  +  dist * 180  /* + laps[i] * 360 */;
- 
-
-		/*Uncomment this block if transitions	*
-		  are enabled in css. this forces the 	*
-		  divs to always choose the shortest 	*
-		  rotation path							*/
-		var dir = prevYs[i] - y;
-		if(Math.abs(prev[i] - curr) > 180) {
-			curr = dir > 0 ? 
-				curr + 360 : -360 + curr;
-			laps[i] += dir > 0 ? 1 : -1;
-		}
-		prevYs[i] = b;
-		prev[i] = curr;
-
-		// var c = 255 - Math.floor(150 * dist) ;
-		// var color = 'rgba(' + c + ',' + c + ',' + c + ', 1)';
-		// div.childNodes[0].style.borderColor = color;
+		var curr = p.angleTo(a, b)
 		div.style.transform = 'rotate(' + -curr + 'deg)';
 	}
 }

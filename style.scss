@@ -106,15 +106,11 @@ input:-webkit-autofill {
 	padding: 0 $a/2;
 	color: #000;
 	background-color: $primary;
-	margin: $a/2 0 0 $a/2;
+	margin: $a * .7 0 0 $a * 2;
 	position: absolute;
 	line-height: .9 * $a ;
 	font-size:  1.5 * $a;
 	font-family: "JSlab-sb";
-	// transform: perspective(30vw) 
-	// 			translate($a/2, $a * .2) 
-	// 			rotateY(5deg);
-
 }
 
 .up {
@@ -418,7 +414,6 @@ form {
 
 .row > .cell {
 	width: 100%;
-	//padding: 4.5vw;
 }
 
 .inner {	
