@@ -44,7 +44,7 @@ function goToSect(n) {
 function anim() {
 	var cond = down ? (yTemp < y) : (yTemp > y);
 	if(cond) {
-		step = 40;
+		step = 80;
 		yTemp += down ? step : -step;
 		window.scrollTo(0, yTemp);
 		requestAnimationFrame(anim);
@@ -63,13 +63,6 @@ function getDocHeight() {
 }
 
 
-// function init() {
-// 	//trianglify();
-// 	window.scrollTo(0,1);
-// }
-
-// init();
-
 document.addEventListener("scroll", function(e) {
 			var pos = window.scrollY;
 			down = (pos - prev > 0) ? true : false;
@@ -78,49 +71,48 @@ document.addEventListener("scroll", function(e) {
 			"bar shadow hid" : "bar shadow vis"
 			up.className = (pos > 400) ?
 			"shadow up show" : "shadow up hide";
-
-			if(window.innerWidth > 500) {
-				var max = 2;
-				for(var i = 0; i < secs.length; i++) {
-					var focus = pos + window.innerHeight/ 2;
-					var divTop = secs[i].offsetTop; 
-					if(focus > divTop || pos == 1) {
-						max = i;
-					}
+			var max = 2;
+			for(var i = 0; i < secs.length; i++) {
+				var focus = pos + window.innerHeight/ 2;
+				var divTop = secs[i].offsetTop; 
+				if(focus > divTop || pos == 1) {
+					max = i;
 				}
-				focusOn(max);
-				profile.className = max == 0 ? 
-					"profile anim-profile" : "profile";
 			}
+			highlight(max);
+			profile.className = max == 0 ? 
+				"profile anim-profile" : "profile";
 			refreshFocus(e);
 		});
 
-function focusOn(i) {
+function highlight(i) {
 	for(var j = 0; j < secs.length; j++) {
-		var sign = (j % 2 == 0) ? 1 : -1;
 		navButtons[j].className = (j == i) ?
 			"item underline" : "item";
-		secs[j].style.transform = (j == i) ? 
-			"perspective(100vw) rotateY(" +
-			 sign *  window.innerWidth / 400 + "deg)" :
-			"perspective(100vw) rotateY(0deg)";
-
-		var title = document.getElementById('t'+(j+1));
-		var d = "0vw";
-		if(i == j) {
-			switch(i) {
-				case 0:
-					d = "-12vw";
-					break;
-				case 1: 
-					d = "-20.5vw";
-					break;
-				case 2:
-					d = "5vw";
-					break;
+			
+		if(window.innerWidth > 600) {
+			var sign = (j % 2 == 0) ? 1 : -1;
+			secs[j].style.transform = (j == i) ? 
+				"perspective(100vw) rotateY(" +
+				 sign *  window.innerWidth / 400 + "deg)" :
+				"perspective(100vw) rotateY(0deg)";
+			var title = document.getElementById('t'+(j+1));
+			var d = "0vw";
+			if(i == j) {
+				switch(i) {
+					case 0:
+						d = "-12vw";
+						break;
+					case 1: 
+						d = "-20.5vw";
+						break;
+					case 2:
+						d = "5vw";
+						break;
+				}
 			}
+			title.style.transform = "translateX(" + d + ")";
 		}
-		title.style.transform = "translateX(" + d + ")";
 	}
 }
 
@@ -142,7 +134,6 @@ function setTransitions(trans) {
 
 /* MOUSETRACKING */
 
-const dim = 200;
 
 var xpos = 0, ypos = 0;
 var bg = document.getElementById('bg');
@@ -178,36 +169,40 @@ function Point(x, y) {
 
 init();
 
-/* Given a div height and a gutter dimension  *
- * inflate the right number of divs in order  *
+/* inflate the right number of divs in order  *
  * to fill the whole screen                   */
 function init() {
-	main = document.getElementById("main");
-	bg.innerHTML = "";
-	w = window.innerWidth;
+	var w = window.innerWidth; 
+	var dim = w / 5;
 	h = getDocHeight();
-	ROWS = Math.ceil(h / dim);
-	COLS = Math.ceil(ROWS * (w / h));
-	var rowH = h / ROWS;
-	for(var i = 0; i < ROWS; i++) {
-		bg.innerHTML += '<div class="row" style="height: '+rowH+'px"></div>';
-	}
-	rows = document.getElementsByClassName('row');
-	for(var i = 0; i < ROWS; i++) {
-		for(var j = 0; j < COLS; j++) {
-			var cell = '<div class="cell">'+
-							'<div class="inner"></div>'+
-						'</div>';
-			rows[i].innerHTML += cell;
+	if( w > 600) {
+		bg.innerHTML = "";
+		// var d = dim * w / 1360
+		main = document.getElementById("main");
+		ROWS = Math.ceil(h / dim);
+		COLS = Math.ceil(ROWS * (w / h));
+		var rowH = h / ROWS;
+		for(var i = 0; i < ROWS; i++) {
+			bg.innerHTML += '<div class="row" style="height: '+rowH+'px"></div>';
 		}
+		rows = document.getElementsByClassName('row');
+		for(var i = 0; i < ROWS; i++) {
+			for(var j = 0; j < COLS; j++) {
+				var cell = '<div class="cell" style="padding: '+
+								dim/3.5 + 'px">'+
+								'<div class="inner"></div>'+
+							'</div>';
+				rows[i].innerHTML += cell;
+			}
+		}
+		cells = document.querySelectorAll(".cell");
+		prev = Array(cells.length).fill(0);
+		laps = Array(cells.length).fill(0);
+		prevYs = Array(cells.length).fill(0);
+		var origin = new Point(0, 0);
+		maxDist = origin.getDist(w, h);
+		focusOn(w/2, h/2);
 	}
-	cells = document.querySelectorAll(".cell");
-	prev = Array(cells.length).fill(0);
-	laps = Array(cells.length).fill(0);
-	prevYs = Array(cells.length).fill(0);
-	var origin = new Point(0, 0);
-	maxDist = origin.getDist(w, h);
-	focusOn(w/2, h/2);
 }
 
 window.onresize = function() {
@@ -219,10 +214,12 @@ document.onmousemove = refreshFocus
 document.addEventListener("mouseup", refreshFocus);
 
 function refreshFocus(e){
-			xpos = e.pageX;
-			ypos = e.pageY;
-			focusOn(xpos, ypos);
-		}
+	if(window.innerWidth > 600) {
+		xpos = e.pageX;
+		ypos = e.pageY;
+		focusOn(xpos, ypos);
+	}	
+}
 
 function focusOn(a, b) {
 	for(var i = 0; i < cells.length; i++) {
