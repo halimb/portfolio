@@ -130,7 +130,7 @@ function focusOn(i) {
 					d = "-12vw";
 					break;
 				case 1: 
-					d = "-23vw";
+					d = "-20.5vw";
 					break;
 				case 2:
 					d = "5vw";
@@ -162,7 +162,7 @@ function setTransitions(trans) {
 const dim = 200;
 
 var xpos = 0, ypos = 0;
-var grid = document.getElementById('grid');
+var bg = document.getElementById('bg');
 var rows, cellDim, cells, prev, laps, 
 	prevYs, maxDist, w, h, ROWS, COLS;
 var t = 0;
@@ -200,15 +200,16 @@ init();
  * to fill the whole screen                   */
 function init() {
 	main = document.getElementById("main");
-	grid.innerHTML = "";
+	bg.innerHTML = "";
 	w = window.innerWidth;
 	h = main.scrollHeight;
 	console.log(h)
 	ROWS = Math.ceil(h / dim);
 	console.log(ROWS);
 	COLS = Math.ceil(ROWS * (w / h));
+	var rowH = h / ROWS;
 	for(var i = 0; i < ROWS; i++) {
-		grid.innerHTML += '<div class="row"></div>';
+		bg.innerHTML += '<div class="row" style="height: '+rowH+'px"></div>';
 	}
 	rows = document.getElementsByClassName('row');
 	for(var i = 0; i < ROWS; i++) {
@@ -225,7 +226,7 @@ function init() {
 	prevYs = Array(cells.length).fill(0);
 	var origin = new Point(0, 0);
 	maxDist = origin.getDist(w, h);
-	rotateTo(w/2, h/2);
+	//rotateTo(w/2, h/2);
 }
 
 window.onresize = function() {
@@ -246,7 +247,7 @@ function rotateTo(a, b) {
 		var y = div.offsetTop + div.offsetHeight / 2;
 		var p = new Point(x, y);
 		var dist = p.getDist(a, b) / maxDist;
-		var curr = p.angleTo(a, b) /*+   dist * 270 */ /* + laps[i] * 360 */;
+		var curr = p.angleTo(a, b)  /* +  dist * 90  /* + laps[i] * 360 */;
  
 
 		/*Uncomment this block if transitions	*

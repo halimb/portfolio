@@ -10,13 +10,17 @@ img {
   display: block; }
 
 body {
-  margin: 8vw 0;
+  margin: 7vw 0;
   padding: 0;
   background-color: #8BC34A;
   overflow-x: hidden;
-  font-family: "JSlab-sb";
-  display: flex;
-  flex-direction: column; }
+  font-family: "JSlab-sb"; }
+
+*::-moz-selection {
+  background-color: #fba; }
+
+*::selection {
+  background-color: #fba; }
 
 canvas {
   top: 0;
@@ -26,58 +30,58 @@ canvas {
   position: absolute; }
 
 .section {
-  width: 34vw;
+  width: 29.75vw;
   transition: 1s;
-  padding: 4vw;
-  margin: 6vw 25.5vw;
-  font-size: 1.6vw;
+  padding: 3.5vw;
+  margin: 5.25vw 27.625vw;
+  font-size: 1.4vw;
   text-align: justify;
   background-color: #fff;
   transform: perspective(1000vw) rotateY(0deg); }
 
 .content {
-  margin: 10.2vw auto 17vw auto;
+  margin: 8.925vw auto 14.875vw auto;
   transition: 1s; }
 
 .title {
   transition: 1.5s !important;
-  margin-bottom: -4vw;
-  margin-left: -2vw;
-  font-size: 4vw;
+  margin-bottom: -3.5vw;
+  margin-left: -1.75vw;
+  font-size: 3.5vw;
   text-align: center; }
 
 .highlight {
   background-color: #fff;
-  padding: 0 2vw; }
+  padding: 0 1.75vw; }
 
 .up {
   position: fixed;
-  bottom: 2vw;
+  bottom: 1.75vw;
   background-color: #fff;
-  height: 4vw;
-  width: 4vw;
+  height: 3.5vw;
+  width: 3.5vw;
   z-index: 100;
   text-align: center;
-  line-height: 3vw;
-  font-size: 4vw;
+  line-height: 2.625vw;
+  font-size: 3.5vw;
   cursor: pointer;
   transition: .5s;
   transform: perspective(20vw) rotateY(0deg) rotateZ(-90deg); }
 
 .show {
-  right: 1vw; }
+  right: 0.875vw; }
 
 .hide {
-  right: -6vw; }
+  right: -5.25vw; }
 
 .up:hover {
   transform: perspective(20vw) rotateY(-20deg) rotateZ(-90deg); }
 
 .slide-left {
-  margin-left: 6vw; }
+  margin-left: 5.25vw; }
 
 .slide-right {
-  margin-left: 39vw; }
+  margin-left: 44.75vw; }
 
 .slow {
   transition: 3s; }
@@ -90,29 +94,29 @@ canvas {
 
 .portfolio {
   padding: 0;
-  width: 68vw;
-  height: 91.8vw;
-  margin-left: 15.3vw;
+  width: 59.5vw;
+  height: 80.325vw;
+  margin-left: 19.3375vw;
   background-color: transparent;
   transform: perspective(1000vw) rotateY(0deg); }
 
 .port-txt {
   float: left;
   background-color: #fff;
-  margin: 1.2vw;
-  margin-top: 9.4vw;
-  line-height: 2vw;
-  width: 38.6vw;
-  padding: 2vw;
-  font-size: 2vw; }
+  margin: 1.05vw;
+  margin-top: 8.225vw;
+  line-height: 1.75vw;
+  width: 33.775vw;
+  padding: 1.75vw;
+  font-size: 1.75vw; }
 
 .thumb, .snap, .profile {
-  width: 18.7vw;
-  margin: 1.2vw;
-  transition: .2s;
+  width: 16.3625vw;
+  margin: 1.05vw;
+  transition: .25s;
   text-align: justify;
   background-color: #fff;
-  box-shadow: 0.2vw 0.2vw rgba(100, 100, 100, 0.4), 0 0 1vw rgba(100, 100, 100, 0.4);
+  box-shadow: 0.175vw 0.175vw rgba(100, 100, 100, 0.4), 0 0 0.875vw rgba(100, 100, 100, 0.4);
   transform: perspective(200vw) translateZ(0.1vw); }
 
 .snap {
@@ -121,35 +125,36 @@ canvas {
   color: #000;
   overflow: hidden;
   display: block;
-  font-size: 1.6vw;
-  line-height: 4vw;
-  padding: 0.66667vw;
-  padding-top: 0; }
+  font-size: 1.4vw;
+  line-height: 3.5vw;
+  padding: 0.58333vw;
+  padding-top: 0;
+  box-shadow: 0.35vw 0.35vw rgba(0, 0, 0, 0.2); }
 
 .snap:hover {
-  transform: perspective(200vw) translateZ(4vw);
-  box-shadow: 1vw 1vw rgba(100, 100, 100, 0.4); }
+  transform: perspective(200vw) translateZ(3.5vw);
+  box-shadow: 0.875vw 0.875vw rgba(0, 0, 0, 0.3); }
 
 .profile {
   transition: 1s;
-  width: 20.4vw;
+  width: 17.85vw;
   float: right;
-  padding: 1vw;
-  margin-left: -7.33333vw;
-  margin-bottom: -7.33333vw;
-  box-shadow: 0.28571vw 0.28571vw 1vw rgba(0, 0, 0, 0.4);
+  padding: 0.875vw;
+  margin-left: -6.41667vw;
+  margin-bottom: -6.41667vw;
+  box-shadow: 0.25vw 0.25vw 0.875vw rgba(0, 0, 0, 0.4);
   transform: rotateZ(1deg) translateX(0) translateY(0); }
 
 .anim-profile {
-  transform: rotateZ(1deg) translateX(8vw) translateY(-8vw); }
+  transform: rotateZ(1deg) translateX(7vw) translateY(-7vw); }
 
 .bg {
-  left: -2vw;
+  left: -1.75vw;
   z-index: -10;
   position: absolute; }
 
 .bar {
-  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0.875vw rgba(0, 0, 0, 0.4);
   position: fixed;
   top: 0;
   margin: 0;
@@ -162,10 +167,10 @@ canvas {
   top: 0; }
 
 .hid {
-  top: -8vw; }
+  top: -7vw; }
 
 .nav {
-  width: 42vw;
+  width: 36.75vw;
   display: flex;
   margin: 0 auto;
   flex-direction: row;
@@ -174,34 +179,34 @@ canvas {
 
 .item {
   width: 100%;
-  font-size: 1.6vw;
+  font-size: 1.4vw;
   cursor: pointer;
   transition: .5s;
-  line-height: 3vw;
+  line-height: 2.625vw;
   text-align: center;
-  padding: 1vw 0;
+  padding: 0.875vw 0;
   font-family: "JSlab-sb";
-  border-bottom: 2px solid transparent;
+  border-bottom: 4px solid rgba(100, 100, 100, 0);
   border-radius: 10%; }
 
 .underline, .item:hover {
   border-radius: 0%;
-  border-bottom: 2px solid #000; }
+  border-bottom: 4px solid #646464; }
 
 .logo {
   color: #fff;
   background-color: rgba(255, 200, 180, 0.8);
-  margin: 1vw 0 0 1vw;
+  margin: 0.875vw 0 0 0.875vw;
   position: absolute;
-  line-height: 2.2vw;
-  font-size: 3vw;
+  line-height: 1.925vw;
+  font-size: 2.625vw;
   font-family: "JSlab-sb";
-  transform: perspective(30vw) translate(1vw, 0.4vw); }
+  transform: perspective(30vw) translate(0.875vw, 0.35vw); }
 
 .links {
-  margin: 2vw 1.6vw;
-  margin-bottom: 4vw;
-  width: 20.4vw;
+  margin: 1.75vw 1.4vw;
+  margin-bottom: 3.5vw;
+  width: 17.85vw;
   left: 0;
   right: 0;
   margin: auto;
@@ -209,10 +214,10 @@ canvas {
   flex-direction: row; }
 
 #contact {
-  width: 25.5vw;
+  width: 22.3125vw;
   text-align: center;
   background-color: transparent;
-  font-size: 2vw; }
+  font-size: 1.75vw; }
 
 .contact {
   width: 100%; }
@@ -226,24 +231,24 @@ canvas {
 
 .logo-img {
   position: absolute;
-  width: 4.4vw; }
+  width: 3.85vw; }
 
 #B {
   font-size: 70%;
   font-family: "JSlab-b"; }
 
 #greet {
-  font-size: 3vw; }
+  font-size: 2.625vw; }
 
 #bio::first-letter {
   font-family: "JSlab-sb";
-  font-size: 4vw; }
+  font-size: 3.5vw; }
 
 #t2 {
-  margin-bottom: -12vw; }
+  margin-bottom: -10.5vw; }
 
 ::-webkit-scrollbar {
-  width: 1vw; }
+  width: 0.875vw; }
 
 ::-webkit-scrollbar-track {
   background-color: rgba(255, 255, 255, 0.2);
@@ -251,26 +256,46 @@ canvas {
 
 ::-webkit-scrollbar-thumb {
   background-color: #fff;
-  height: 6vw; }
+  height: 5.25vw; }
 
-input {
-  margin-bottom: 2vw;
-  width: 34vw;
-  height: 4vw;
-  font-size: 2.4vw;
+.in, input {
+  margin-bottom: 1.75vw;
+  width: 29.75vw;
+  height: 3.5vw;
+  font-size: 2.1vw;
   font-family: "JSlab-sb";
-  background-color: transparent;
+  background-color: transparent !important;
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 2px solid black; }
+  border-bottom: 2px solid black;
+  transition: 1s; }
 
-input:focus {
+.focus, #msg:focus, input:focus {
   outline: none;
   border-top: none;
   border-left: none;
   border-right: none;
   border-bottom: 2px solid black; }
+
+.in::-webkit-input-placeholder, input::-webkit-input-placeholder {
+  color: #000;
+  font-size: 1.75vw; }
+
+.in::-moz-placeholder, input::-moz-placeholder {
+  color: #000; }
+
+.in:-ms-input-placeholder, input:-ms-input-placeholder {
+  color: #000; }
+
+.in:-moz-placeholder, input:-moz-placeholder {
+  color: #000; }
+
+#msg:focus {
+  height: 10.5vw !important; }
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #8BC34A inset; }
 
 @media screen and (max-width: 600px) {
   body {
@@ -303,8 +328,6 @@ input:focus {
     font-size: 15.4vw; } }
 /* MOUSETRACKING */
 .wrapper {
-  display: flex;
-  flex-direction: column;
   background-color: #8BC34A; }
 
 .main {
@@ -314,23 +337,19 @@ input:focus {
   left: 0;
   position: absolute; }
 
-.flex-grid {
-  min-height: 100% !important;
-  display: flex;
-  flex-direction: column; }
-
-.flex-grid > .row {
+.bg-grid > .row {
   height: 100%;
   display: flex; }
 
 .row > .cell {
   width: 100%;
-  display: flex;
-  padding: 10vw; }
+  padding: 3vw; }
 
 .inner {
-  border-left: 5vw solid rgba(255, 255, 255, 0.2);
-  border-bottom: 2.5vw solid rgba(255, 255, 255, 0);
-  border-top: 2.5vw solid rgba(255, 255, 255, 0); }
+  max-width: 30%;
+  max-height: 100%;
+  border-left: 3vw solid rgba(255, 255, 255, 0.2);
+  border-bottom: 0.3vw solid rgba(255, 255, 255, 0.1);
+  border-top: 0.3vw solid rgba(255, 255, 255, 0.1); }
 
 /*# sourceMappingURL=style.css.map */

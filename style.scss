@@ -1,7 +1,8 @@
-$bg: #fff;
+$bg: #8BC34A;
+$solid: #fff;
 $primary: #fba;
 $border: #ddd;
-$a: 2vw;
+$a: 1.75vw;
 $ml: (85 - 17*$a) / 2;
 $w: 17*$a;
 
@@ -25,12 +26,13 @@ img {
 body {
 	margin: 4*$a 0;
 	padding: 0;
-	background-color: #8BC34A;
+	background-color: $bg;
 	overflow-x: hidden;
 	font-family: "JSlab-sb";
-	display : flex;
-	flex-direction: column;
 }
+
+*::-moz-selection { background-color: $primary; }
+*::selection { background-color: $primary; }
 
 canvas {
 	top: 0;
@@ -47,7 +49,7 @@ canvas {
 	margin: 3*$a $ml;
 	font-size: .8 * $a;
 	text-align: justify;
-	background-color: $bg;
+	background-color: $solid;
 	transform: perspective(1000vw) rotateY(0deg);
 }
 
@@ -65,14 +67,14 @@ canvas {
 }
 
 .highlight {
-	background-color: $bg;
+	background-color: $solid;
 	padding: 0 $a;
 }
 
 .up {
 	position: fixed;
 	bottom: $a;
-	background-color: $bg;
+	background-color: $solid;
 	height: 2*$a;
 	width: 2*$a;
 	z-index: 100;
@@ -121,14 +123,14 @@ canvas {
 	padding: 0;
 	width: 2 * $w;
 	height: $w * 2.7;
-	margin-left: $ml * .6;
+	margin-left: $ml * .7;
 	background-color: rgba(0,0,0,0);
 	transform: perspective(1000vw) rotateY(0deg);
 }
 
 .port-txt {
 	float: left;
-	background-color: $bg;
+	background-color: $solid;
 	margin: $a * .6;
 	margin-top: 4.7 *$a;
 	line-height: $a;
@@ -140,9 +142,9 @@ canvas {
 .thumb {
 	width: $w * .55;
 	margin: $a * .6;
-	transition: .2s;
+	transition: .25s;
 	text-align: justify;
-	background-color: $bg;
+	background-color: $solid;
 	box-shadow: .1*$a .1*$a rgba(100,100,100,.4), 
 	0 0  $a/2 rgba(100,100,100,.4);
 	transform: perspective(200vw) translateZ(.1vw);
@@ -159,12 +161,13 @@ canvas {
 	line-height: 2 * $a;
 	padding: $a/3;
 	padding-top: 0;
+	box-shadow: $a/5 $a/5  rgba(0,0,0,.2);
 }
 
 
 .snap:hover{
 	transform: perspective(200vw) translateZ(2*$a);
-	box-shadow: $a/2 $a/2  rgba(100,100,100,.4);
+	box-shadow: $a/2 $a/2  rgba(0,0,0,.3);
 }
 
 .profile {	
@@ -197,7 +200,7 @@ canvas {
 	width: 100vw;
 	z-index: 50;
 	transition: .5s;
-	background-color: $bg;
+	background-color: $solid;
 }
 
 .vis {
@@ -225,13 +228,13 @@ canvas {
 	text-align: center;
 	padding: $a/2 0;
 	font-family: "JSlab-sb";
-	border-bottom: 2px solid rgba(0,0,0,0);
+	border-bottom: 4px solid rgba(100,100,100,0);
 	border-radius: 10%;
 }
 
 .underline {
 	border-radius: 0%;
-	border-bottom: 2px solid #000;
+	border-bottom: 4px solid rgba(100,100,100,1);
 }
 
 .item:hover {
@@ -239,7 +242,7 @@ canvas {
 }
 
 .logo {
-	color: $bg;
+	color: $solid;
 	background-color: rgba(255, 200, 180, .8);
 	margin: $a/2 0 0 $a/2;
 	position: absolute;
@@ -315,30 +318,67 @@ canvas {
 }
 
 ::-webkit-scrollbar-thumb{
-	background-color: $bg;
+	background-color: $solid;
 	height: 3*$a;
 }
 
-input{
+
+.in {
 	margin-bottom: $a;
 	width: $w;
 	height: $a * 2;
 	font-size: $a * 1.2;
 	font-family: "JSlab-sb";
-	background-color: rgba(0,0,0,0);
+	background-color: rgba(0,0,0,0) !important;
 	border-top: none;
 	border-left: none;
 	border-right: none;
 	border-bottom: 2px solid black;
+	transition: 1s;
 }
 
-input:focus{
+.focus {
 	outline: none;
 	border-top: none;
 	border-left: none;
 	border-right: none;
 	border-bottom: 2px solid black;
 }
+
+.in::-webkit-input-placeholder {
+	color: #000;
+	font-size: $a;
+}
+
+.in::-moz-placeholder {
+	color: #000;
+}
+
+.in:-ms-input-placeholder {
+	color: #000;
+}
+
+.in:-moz-placeholder {
+	color: #000;
+}
+
+#msg:focus {
+	@extend .focus;
+	height: 6*$a !important;
+}
+
+input{
+	@extend .in;
+}
+
+input:focus{
+	@extend .focus;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px $bg inset;
+}
+
 
 @media screen and (max-width: 600px) {
 	$a: 7vw;
@@ -387,9 +427,7 @@ input:focus{
 
 
 .wrapper {
-	display : flex;
-	flex-direction: column;
-	background-color: #8BC34A;
+	background-color: $bg;
 }
 
 .main {
@@ -399,26 +437,21 @@ input:focus{
 	position: absolute; 
 }
 
-.flex-grid {
-	min-height: 100% !important;
-	display: flex;
-	flex-direction: column;
-}
-
-.flex-grid > .row {
+.bg-grid > .row {
 	height: 100%;
 	display: flex;
 }
 
 .row > .cell {
 	width: 100%;
-	display: flex;
-	padding: 10vw;
-}
+	padding: 3vw;}
 
 .inner {	
+	max-width: 30%;
+	max-height: 100%;
 	// border-bottom: 1vw solid rgba(255,255,255,.2);
-	border-left: 5vw solid rgba(255,255,255,.2);
-	border-bottom: 2.5vw solid rgba(255,255,255,0);
-	border-top: 2.5vw solid rgba(255,255,255,0);
+	border-left: 3vw solid rgba(255,255,255,.2);
+	border-bottom: .3vw solid rgba(255,255,255,.1);
+	border-top: .3vw solid rgba(255,255,255,.1);
+	// box-shadow: 2*$a 2*$a 0 rgba(255,255,255,.5);
 }
