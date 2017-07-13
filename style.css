@@ -239,6 +239,9 @@ input:-webkit-autofill {
   font-family: "JSlab-sb";
   font-size: 3.5vw; }
 
+#t1 {
+  transform: translateX(-12vw); }
+
 #t2 {
   margin-bottom: -10.5vw; }
 
