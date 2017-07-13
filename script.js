@@ -62,6 +62,7 @@ function getDocHeight() {
 
 
 document.addEventListener("scroll", function(e) {
+		
 			var pos = window.scrollY;
 			down = (pos - prev > 0) ? true : false;
 			prev = pos;

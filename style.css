@@ -185,7 +185,8 @@ input:-webkit-autofill {
   transform: rotateZ(1deg) translateX(0) translateY(0); }
 
 .anim-profile {
-  transform: rotateZ(1deg) translateX(7vw) translateY(-7vw); }
+  transform: rotateZ(1deg) translateX(7vw) translateY(-7vw);
+  box-shadow: none; }
 
 .portfolio {
   padding: 0;

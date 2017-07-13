@@ -242,6 +242,7 @@ input:-webkit-autofill {
 
 .anim-profile {	
 	transform: rotateZ(1deg) translateX(4*$a) translateY(-4*$a);
+	box-shadow: none;
 }
 
 .portfolio {
