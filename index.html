@@ -118,12 +118,13 @@
 			<div id="c3" class="content">
 				<div id="t3" class="title"><span class="highlight ">Get in touch</span></div>
 				<div class="section" id="contact">
-					<form id="in-touch">
-						<input id="name" type="text" placeholder="Name"></input>
-						<input id="mail" type="email" placeholder="Email"></input>
-						<textarea class="in" id="msg" type="text" placeholder="Message"></textarea>
+					<form id="in-touch" action="https://formspree.io/halim.bouguedra@gmail.com"
+      method="POST">
+						<input name="name" id="name" type="text" placeholder="Name"></input>
+						<input name="email" id="mail" type="email" placeholder="Email"></input>
+						<input type="textarea" class="in" id="msg" name="message" placeholder="Message"></input>
+						<input type="submit" name="submit">&gt;</input>
 					</form>
-					<div class="send">&gt;</div>
 				</div>
 
 				<div class="links">
