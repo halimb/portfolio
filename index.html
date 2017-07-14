@@ -7,6 +7,8 @@
 		<meta name="author" contant="Abdel Halim Bouguedra">
 		<meta name="viewport" content="width=device-width minimum-scale=1">
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<script data-cfasync="false" type="text/javascript"
+src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
 	</head>
 
 	<body>
@@ -118,14 +120,16 @@
 			<div id="c3" class="content">
 				<div id="t3" class="title"><span class="highlight ">Get in touch</span></div>
 				<div class="section" id="contact">
-					<form id="in-touch" action="https://formspree.io/halim.bouguedra@gmail.com"
+					<form id="gform" action="#" onsubmit="handleFormSubmit()"
       method="POST">
 						<input name="name" id="name" type="text" placeholder="Name"></input>
 						<input name="email" id="mail" type="email" placeholder="Email"></input>
 						<input type="textarea" class="in" id="msg" name="message" placeholder="Message"></input>
-						<input type="submit" name="submit">&gt;</input>
 					</form>
+					<div class="send" id="send" onclick="document.forms[0].submit();">&gt;</div>
 				</div>
+
+				<div id="thankyou" class="thankyou"> <h1> THANK YOU ! <h1/> </div>
 
 				<div class="links">
 					<div class="contact">

@@ -664,5 +664,21 @@ input:focus{
 
 }
 
+.thankyou {
+	position: fixed;
+	z-index: 10;
+	top: 50%;
+	left: 50%;
+	visibility: hidden;
+}
+
+.hide-me {
+	animation: hide-me .5s ease;
+}
+
+@keyframes hide-me {
+	100% {left: -50%}
+}
+
 // > > >
 
