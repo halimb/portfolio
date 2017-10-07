@@ -225,7 +225,7 @@ input:-webkit-autofill {
 .links {
   margin: 1.75vw 1.4vw;
   margin-bottom: 3.5vw;
-  width: 17.85vw;
+  width: 20.825vw;
   left: 0;
   right: 0;
   margin: auto;
@@ -466,7 +466,7 @@ form {
     font-size: 7vw; }
 
   .logo-img {
-    width: 15.4vw; }
+    width: 11.9vw; }
 
   #greet {
     font-size: 5.6vw; }
