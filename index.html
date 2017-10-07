@@ -6,19 +6,32 @@
 		<!-- Global Site Tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107362001-1"></script>
 		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments)};
-		  gtag('js', new Date());
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments)};
+			gtag('js', new Date());
 
-		  gtag('config', 'UA-107362001-1');
+			gtag('config', 'UA-107362001-1');
+
+		    /**
+			* Function that tracks a click on an outbound link in Analytics.
+			* This function takes a valid URL string as an argument, and uses that URL string
+			* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+			* using 'navigator.sendBeacon' in browser that support it.
+			*/
+			var trackOutboundLink = function(url) {
+			  gtag('event', 'click', {
+			    'event_category': 'outbound',
+			    'event_label': url,
+			    'transport_type': 'beacon',
+			    'event_callback': function(){document.location = url;}
+			  });
+			}
 		</script>
 		<meta charset="UTF-8">
 		<meta name="author" contant="Abdel Halim Bouguedra">
 		<meta name="viewport" content="width=device-width minimum-scale=1">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<script data-cfasync="false" type="text/javascript"
-src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
 	</head>
 
 	<body>
@@ -56,91 +69,91 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
 						Some of the web apps I built. <br>Mostly FreeCodeCamp milestone projects and a couple Three.js experimentation demos. More to come !
 					</div>
 
-					<a href="https://halimb.github.io/simple-tuner/" target="_blank">
+					<a href="https://halimb.github.io/simple-tuner/" target="_blank" onclick="trackOutboundLink('https://halimb.github.io/simple-tuner/'); return false;">
 						<div class="snap">
 							Instrument tuner
 							<img src="img/res-tuner.png"/>
 						</div>
 					<a/>
 
-					<a href="https://halimb.github.io/weather-app/" target="_blank">
+					<a href="https://halimb.github.io/weather-app/" target="_blank" onclick="trackOutboundLink('https://halimb.github.io/weather-app/'); return false;">
 						<div class="snap">
 							Weather app
 							<img src="img/res-weather.png"/>
 						</div>
 					<a/>
 
-					<a href="https://halimb.github.io/three-js-mousepicking/" target="_blank">
+					<a href="https://halimb.github.io/three-js-mousepicking/" target="_blank" onclick="trackOutboundLink('https://halimb.github.io/three-js-mousepicking/'); return false;">
 						<div class="snap">
 							Three.js Mousepicking
 							<img src="img/res-mousepicking.png"/>
 						</div>
 					<a/>
 
-					<a href="https://halimb.github.io/calculator/" target="_blank">
+					<a href="https://halimb.github.io/calculator/" target="_blank" onclick="trackOutboundLink('https://halimb.github.io/calculator/'); return false;">
 						<div class="snap">
 							Calculator
 							<img src="img/res-calculator.png"/>
 						</div>
 					<a/>
 
-					<a href="https://halimb.github.io/pomodoro3d/" target="_blank">
+					<a href="https://halimb.github.io/pomodoro3d/" target="_blank" onclick="trackOutboundLink('https://halimb.github.io/pomodoro3d/'); return false;">
 						<div class="snap">
 							3D Pomodoro timer
 							<img src="img/res-pomThree.png"/>
 						</div>
 					<a/>
 					
-					<a href="https://halimb.github.io/tictactoe/" target="_blank">
+					<a href="https://halimb.github.io/tictactoe/" target="_blank" onclick="trackOutboundLink('https://halimb.github.io/tictactoe/'); return false;">
 						<div class="snap">
 							Tic-Tac-Toe
 							<img src="img/res-tictactoe.png"/>
 						</div>
 					<a/>
 
-					<a href="https://halimb.github.io/simongame/" target="_blank">
+					<a href="https://halimb.github.io/simongame/" target="_blank" onclick="trackOutboundLink('https://halimb.github.io/simongame/'); return false;">
 						<div class="snap">
 							Simon Game
 							<img src="img/res-simon.png"/>
 						</div>
 					<a/>
 
-					<a href="https://halimb.github.io/pomodoro/" target="_blank">
+					<a href="https://halimb.github.io/pomodoro/" target="_blank" onclick="trackOutboundLink('https://halimb.github.io/pomodoro/'); return false;">
 						<div class="snap">
 							Pomodoro timer
 							<img src="img/res-pomodoro.png"/>
 						</div>
 					<a/>
 
-					<a href="https://codepen.io/unhalium/full/LxPdjj/" target="_blank">
+					<a href="https://codepen.io/unhalium/full/LxPdjj/" target="_blank" onclick="trackOutboundLink('https://codepen.io/unhalium/full/LxPdjj/'); return false;">
 						<div class="snap">
 							Wikipedia search
 							<img src="img/res-wikipedia.png"/>
 						</div>
 					<a/>
 
-					<a href="https://codepen.io/unhalium/full/WodLBr/" target="_blank">
+					<a href="https://codepen.io/unhalium/full/WodLBr/" target="_blank" onclick="trackOutboundLink('https://codepen.io/unhalium/full/WodLBr/'); return false;">
 						<div class="snap">
 							Tribute page
 							<img src="img/res-tribute.png"/>
 						</div>
 					<a/>
 					
-					<a href="https://codepen.io/unhalium/full/bBxVpP/" target="_blank">
+					<a href="https://codepen.io/unhalium/full/bBxVpP/" target="_blank" onclick="trackOutboundLink('https://codepen.io/unhalium/full/bBxVpP/'); return false;">
 						<div class="snap">
 							Random quotes
 							<img src="img/res-twitter.png"/>
 						</div>
 					<a/>
 
-					<a href="https://halimb.github.io/recipebox/" target="_blank">
+					<a href="https://halimb.github.io/recipebox/" target="_blank" onclick="trackOutboundLink('https://halimb.github.io/recipebox/'); return false;">
 						<div class="snap">
 							Recipebox (React)
 							<img src="img/res-recipebox.png"/>
 						</div>
 					<a/>
 
-					<a href="https://halimb.github.io/mdpreview/" target="_blank">
+					<a href="https://halimb.github.io/mdpreview/" target="_blank" onclick="trackOutboundLink('https://halimb.github.io/mdpreview/'); return false;">
 						<div class="snap">
 							live Markdown (React)
 							<img src="img/res-md.png"/>
@@ -165,7 +178,7 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
 
 				<div class="links">
 					<div class="contact">
-						<a href="https://github.com/halimb" target="_blank">
+						<a href="https://github.com/halimb" target="_blank" onclick="trackOutboundLink('https://github.com/halimb'); return false;">
 							<div class="logo-img"> 
 								<img src="img/gh.png"/> 
 							</div>
@@ -177,7 +190,7 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
 					</div> 	
 					
 					<div class="contact">
-						<a href="https://codepen.io/unhalium/" target="_blank">
+						<a href="https://codepen.io/unhalium/" target="_blank" onclick="trackOutboundLink('https://codepen.io/unhalium/'); return false;">
 							<div class="logo-img"> 
 								<img src="img/cp.png"/> 
 							</div>
@@ -188,7 +201,7 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
 						</a>
 					</div> 	
 					<div class="contact">
-						<a href="https://www.linkedin.com/in/abdel-halim-bouguedra-72b9a6133/" target="_blank">
+						<a href="https://www.linkedin.com/in/abdel-halim-bouguedra-72b9a6133/" target="_blank" onclick="trackOutboundLink('https://www.linkedin.com/in/abdel-halim-bouguedra-72b9a6133/'); return false;">
 							<div class="logo-img"> 
 								<img src="img/in.png"/> 
 							</div>
@@ -200,7 +213,7 @@ src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-
 					</div> 	
 					
 					<div class="contact">
-						<a href="https://www.facebook.com/bouguedra.halim" target="_blank">
+						<a href="https://www.facebook.com/bouguedra.halim" target="_blank" onclick="trackOutboundLink('https://www.facebook.com/bouguedra.halim'); return false;">
 							<div class="logo-img"> 
 								<img src="img/fb.png"/> 
 							</div>
