@@ -191,7 +191,7 @@ input:-webkit-autofill {
 .portfolio {
   padding: 0;
   width: 59.5vw;
-  height: 95.2vw;
+  height: 111.5625vw;
   margin-left: 19.3375vw;
   background-color: transparent;
   transform: perspective(1000vw) rotateY(0deg); }
